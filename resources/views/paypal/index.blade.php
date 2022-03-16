@@ -17,7 +17,7 @@
             <a href="/">Quay lại</a>
         </div>
         <div class="col-2 d-flex" style="justify-content: space-around;">
-        <a href="">Docs</a>
+        <a href="https://www.youtube.com/watch?v=fUzTsIeonW4">Tutorial</a>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">

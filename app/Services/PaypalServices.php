@@ -69,35 +69,28 @@ class PaypalServices
                 ->setTransactions(array($transaction));
             try {
                 $payment->create($this->apiContext);
+               
             } catch (\PayPal\Exception\PPConnectionException $ex) {
                 if (Config::get('app.debug')) {
                     \Session::flash('toastr',[
                         'type'      =>'error',
                         'message'   =>'Quá thời gian kết nối'
                     ]);
-                    return redirect()->back();
-    
+                    return '/';
                 } else {
                     \Session::flash('toastr',[
                         'type'      =>'error',
                         'message'   =>'Đã xảy ra lỗi ,xin lỗi vì sự bất tiện này'
                     ]);
-                    return redirect()->back();
+                    return '/';
                 }
             }
+           
             foreach ($payment->getLinks() as $link) {
                 if ($link->getRel() == 'approval_url') {
-                    $redirect_url = $link->getHref();
-                    break;
+                    return $link->getHref();
                 }
             }
-            Payment::create([
-                'name'  => '123',
-                'money' => $money,
-                'gate'  => 'paypal',
-                'status' => 0,
-                'code'  => $payment->getId()
-            ]);
-            return $redirect_url;
+           
         }
 }
