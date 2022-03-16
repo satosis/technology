@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Payment\PaypayController;
+use App\Http\Controllers\Api\Payment\PaypalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,11 @@ Route::group(['prefix' => 'paypay'],
     function () {
         Route::post('/', [PaypayController::class, 'paypay']); 
         Route::post('/webhook', [PaypayController::class, 'webhook']);
+    }
+);
+Route::group(['prefix' => 'paypal'],
+    function () {
+        Route::post('/', [PaypalController::class, 'paypal']); 
+        Route::post('/webhook', [PaypalController::class, 'webhook']);
     }
 );

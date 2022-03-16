@@ -20,9 +20,11 @@
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <div class="card p-3">
-                <div class="img-box"> <img src="{{ asset('img/master-card.png') }}" class="h50" alt=""> </div>
-            </div>
+            <a href="/paypal">
+                <div class="card p-3">
+                    <div class="img-box"> <img src="{{ asset('img/paypal.png') }}" class="h50" alt=""> </div>
+                </div>
+            </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <div class="card p-3">

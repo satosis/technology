@@ -17,12 +17,11 @@
             <a href="/">Quay lại</a>
         </div>
         <div class="col-2 d-flex" style="justify-content: space-around;">
-        <a href="{{ asset('docs/paypay.docx') }}" class="text-right">Tài liệu</a>
-        <a href="https://www.paypay.ne.jp/opa/doc/v1.0/dynamicqrcode#section/Handle-unknown-payment-status">Docs</a>
+        <a href="">Docs</a>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
-                <img src="{{ asset('img/paypay.svg') }}" class="h50">
+                <img src="{{ asset('img/paypal.png') }}" class="h50">
             </div>
         </div>
         <div class="col-12">
@@ -33,16 +32,15 @@
                             <div class="col-6 text-center">
                                 <p class="h4 mb-0">Summary</p>
                                 <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Donate</span></p>
-                                <p class="mb-0"><span class="fw-bold">Price:</span><span class="c-green">: 100 JPY</span></p>
+                                <p class="mb-0"><span class="fw-bold">Price:</span><span class="c-green">: 100$</span></p>
                             </div>
                             <div class="col-6 text-center">
                                 <p class="h4 mb-0">Test User</p>
-                                <p class="mb-0"><span class="fw-bold">Phone:</span><span class="c-green">: 08087127161</span></p>
+                                <p class="mb-0"><span class="fw-bold">Email:</span><span class="c-green">: sb-jvln11575580@personal.example.com</span></p>
                                 <p class="mb-0"><span class="fw-bold">Password:</span><span class="c-green">: 6PfnUkpvGl</span></p>
-                                <p class="mb-0"><span class="fw-bold">OTP:</span><span class="c-green">: 1234</span></p>
                             </div>
                         </div>
-                    <div class="col-12" id="paypay" >
+                    <div class="col-12" id="paypal" >
                         <div class="btn btn-primary payment"> Make Payment </div>
                     </div>
                     </div>
@@ -86,14 +84,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(function(){
-        $('#paypay').on('click',function(){
+        $('#paypal').on('click',function(){
             var amount = 100;
-            var url = "/api/paypay";
+            var url = "/api/paypal";
             $.post({
                 url:url,
                 data:{amount:amount},
                 success : function(res){
-                    window.location.href = res.url
+                    window.location.href = res
                 }
             })
         })
