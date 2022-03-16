@@ -48,7 +48,7 @@ class PaypayServices
         $result = $response['data'];
         Payment::create([
             'name'  => '123',
-            'money' => $request->money,
+            'money' => $request->amount,
             'gate'  => 'paypay',
             'status' => 0,
             'code'  => $result['merchantPaymentId']

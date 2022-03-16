@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+.h50{
+    height: 50px !important;
+}
 * {
     margin: 0;
     padding: 0;
@@ -30,9 +33,6 @@ body {
     font-size: 20px;
     width: 100%;
     height: 100%
-}
-.h50{
-    height: 50px !important;
 }
 
 .btn.btn-primary:focus {

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <title>Trang chủ</title>
@@ -14,18 +15,18 @@
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/paypay">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/paypay.svg') }}" alt=""> </div>
+                    <div class="img-box"> <img src="{{ asset('img/paypay.svg') }}" class="h50" alt=""> </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <div class="card p-3">
-                <div class="img-box"> <img src="{{ asset('img/master-card.png') }}" alt=""> </div>
+                <div class="img-box"> <img src="{{ asset('img/master-card.png') }}" class="h50" alt=""> </div>
             </div>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <div class="card p-3">
-                <div class="img-box"> <img src="{{ asset('img/discover.png') }}" alt=""> </div>
+                <div class="img-box"> <img src="{{ asset('img/discover.png') }}" class="h50" alt=""> </div>
             </div>
         </div>
         <div class="col-12 mt-4">

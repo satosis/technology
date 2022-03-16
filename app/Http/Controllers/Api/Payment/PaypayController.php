@@ -12,7 +12,7 @@ class PaypayController extends Controller
     public function __construct(PaypayServices $paypayServices)
     {
         $this->paypayServices  = $paypayServices;
-    }
+    } 
 
     public function paypay(Request $request)
     {
