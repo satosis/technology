@@ -36,7 +36,7 @@ class PaypalServices
             $money = $request->amount;  
             $payer = new Payer();
             $payer->setPaymentMethod('paypal'); 
-            $item_1 = new Item(); 
+            $item_1 = new Item();  
             $item_1->setName('Donate') /** item name **/
                 ->setCurrency('USD')
                 ->setQuantity(1)
@@ -69,7 +69,6 @@ class PaypalServices
                 ->setTransactions(array($transaction));
             try {
                 $payment->create($this->apiContext);
-               
             } catch (\PayPal\Exception\PPConnectionException $ex) {
                 if (Config::get('app.debug')) {
                     \Session::flash('toastr',[

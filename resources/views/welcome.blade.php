@@ -27,9 +27,11 @@
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <div class="card p-3">
-                <div class="img-box"> <img src="{{ asset('img/discover.png') }}" class="h50" alt=""> </div>
-            </div>
+            <a href="/stripe">
+                <div class="card p-3">
+                    <div class="img-box"> <img src="{{ asset('img/stripe.png') }}" class="h50" alt=""> </div>
+                </div>
+            </a>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">

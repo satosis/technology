@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Payment\PaypayController;
 use App\Http\Controllers\Api\Payment\PaypalController;
+use App\Http\Controllers\Api\Payment\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,12 @@ Route::group(['prefix' => 'paypay'],
     function () {
         Route::post('/', [PaypayController::class, 'paypay']); 
         Route::post('/webhook', [PaypayController::class, 'webhook']);
+    }
+);
+Route::group(['prefix' => 'stripe'],
+    function () {
+        Route::post('/', [StripeController::class, 'paypal']); 
+        Route::post('/webhook', [StripeController::class, 'webhook']);
     }
 );
 Route::group(['prefix' => 'paypal'],

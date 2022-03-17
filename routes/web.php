@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Payment\PaypayController;
+use App\Http\Controllers\Backend\Payment\StripeController;
 use App\Http\Controllers\Backend\Payment\PaypalController;
 
 /*
@@ -20,4 +21,5 @@ Route::get('/', function () {
 });
 
 Route::get('/paypay', [PaypayController::class, 'index']);
+Route::get('/stripe', [StripeController::class, 'index']);
 Route::get('/paypal', [PaypalController::class, 'index']);

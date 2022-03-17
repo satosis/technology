@@ -12,7 +12,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "paypal/rest-api-sdk-php": "^1.14",
-        "paypayopa/php-sdk": "^2.0"
+        "paypayopa/php-sdk": "^2.0",
+        "stripe/stripe-php": "^7.116"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
