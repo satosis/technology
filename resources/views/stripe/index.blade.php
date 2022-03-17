@@ -37,19 +37,19 @@
                                     <div class="row">
                                         <div id="card-errors" class="text-danger"></div>
                                         <div class="col-12">
-                                            <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">Card Number</label> </div>
+                                            <div class="form__div"> <input type="text" id="number" class="form-control" placeholder=" "> <label for="" class="form__label">Card Number</label> </div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">MM / yy</label> </div>
+                                            <div class="form__div"> <input type="text" id="exp" class="form-control" placeholder=" "> <label for="" class="form__label">MM / yy</label> </div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="form__div"> <input type="password" class="form-control" placeholder=" "> <label for="" class="form__label">cvv code</label> </div>
+                                            <div class="form__div"> <input type="password" id="cvv" class="form-control" placeholder=" "> <label for="" class="form__label">cvv code</label> </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">name on the card</label> </div>
+                                            <div class="form__div"> <input type="text" id="name" class="form-control" placeholder=" "> <label for="" class="form__label">name on the card</label> </div>
                                         </div>
                                         <div class="col-12">
-                                            <buton type="submit" class="btn btn-primary w-100">Sumbit</button>
+                                            <buton type="button" id="stripe" class="btn btn-primary w-100">Sumbit</button>
                                         </div>
                                     </div>
                                 </form>
@@ -57,22 +57,8 @@
                         </div>
                     </div>
                 </div>
-        </div> 
-        <form action="/charge" method="post" id="payment-form">
-  <div class="form-row">
-    <label for="card-element">
-      Credit or debit card
-    </label>
-    <div id="card-element">
-      <!-- A Stripe Element will be inserted here. -->
-    </div>
-
-    <!-- Used to display form errors. -->
-    <div id="card-errors" role="alert"></div>
-  </div>
-
-  <button>Submit Payment</button>
-</form>
+        </div>
+         
         <h4 class="text-center mt-5">History</h4>
             <table class="table">
     <thead>
@@ -110,44 +96,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>   
 <script>
-    // Create a Stripe client.
-    var stripe = Stripe('pk_test_51Iw7TQLxvwHioeUuTvLvbu3aQUgCWzvdBohSOvuaLAeXerZCjBBDIkz8fqqxzSlxSpi5wxef40HovGeYn4GXUAic00VMLQ8SFH');
-
-    // Create an instance of Elements.
-    var elements = stripe.elements();
-
-    // Create an instance of the card Element.
-    var card = elements.create('card');
-
-    // Add an instance of the card Element into the `card-element` <div>.
-    card.mount('#card-element');
-
-    // Handle real-time validation errors from the card Element.
-    card.addEventListener('change', function(event) {
-    var displayError = document.getElementById('card-errors');
-    if (event.error) {
-        displayError.textContent = event.error.message;
-    } else {
-        displayError.textContent = '';
-    }
-    });
-
-    // Handle form submission.
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    stripe.createToken(card).then(function(result) {
-        if (result.error) {
-        // Inform the user if there was an error.
-        var errorElement = document.getElementById('card-errors');
-        errorElement.textContent = result.error.message;
-        } else {
-        // Send the token to your server.
-        stripeTokenHandler(result.token);
-        }
-    });
-    });
+    $(function(){
+        $('#stripe').on('click',function(){
+            var number = $('#number').val();
+            var exp = $('#exp').val();
+            var cvv = $('#cvv').val();
+            var name = $('#name').val();
+            var url = "/api/stripe/register";
+            $.get({
+                
+            })
+        })
+    })
 
 </script>
 </body>

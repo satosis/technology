@@ -29,7 +29,7 @@ Route::group(['prefix' => 'paypay'],
 );
 Route::group(['prefix' => 'stripe'],
     function () {
-        Route::post('/', [StripeController::class, 'paypal']); 
+        Route::post('/register', [StripeController::class, 'register']); 
         Route::post('/webhook', [StripeController::class, 'webhook']);
     }
 );

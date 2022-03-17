@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Log;
 use Config;
 use Stripe\Stripe;
 use Stripe\Customer;
@@ -12,17 +13,10 @@ class StripeServices
        Stripe::setApiKey(Config::get('env.stripe_api_key'));
        Customer::create(array(
         "description" => "Customer for truongbt",
-        "source" => "tok_xxx" // token mà bạn nhận được từ client
+        "source" => "tok_1KeJ1hLxvwHioeUumJkWId5l" // token mà bạn nhận được từ client
       ));
-    }  
-
-   /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        Cashier::ignoreMigrations();
+    }   
+    public function webhookPaymentTransaction($request){
+      Log::info($request->all());
     }
 }
