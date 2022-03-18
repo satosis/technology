@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ asset('css/chat.css') }}">
     <title>Trang chủ</title>
@@ -27,10 +26,6 @@
     </div>
     <main class="content">
     <div class="container p-0">
-
-		<h1 class="h3 mb-3">Messages</h1>
-
-		<div class="card">
 			<div class="row g-0">
 				<div class="col-12 col-lg-5 col-xl-3 border-right">
 
@@ -286,7 +281,6 @@
 
 				</div>
 			</div>
-		</div>
 	</div>
 </main>
 </div>

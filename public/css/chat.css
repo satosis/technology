@@ -8,6 +8,10 @@ body{margin-top:20px;}
     color: #e4606d
 }
 
+.h50{
+  height: 50px !important;
+  object-fit: contain;
+}
 .chat-messages {
     display: flex;
     flex-direction: column;
@@ -15,6 +19,11 @@ body{margin-top:20px;}
     overflow-y: scroll
 }
 
+.badge{
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
 .chat-message-left,
 .chat-message-right {
     display: flex;
