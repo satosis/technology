@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Backend\Payment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Payment;
 
 class StripeController extends Controller
 {
     public function index(){
-        return view('stripe.index');
+        $payment = Payment::where('gate', 'stripe')->paginate(12);
+        return view('payment.stripe.index',compact('payment'));
     }
 }

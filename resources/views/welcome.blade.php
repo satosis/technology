@@ -1,101 +1,225 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <title>Trang chủ</title>
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/paypay">
-                <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/paypay.svg') }}" class="h50" alt=""> </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/paypal">
-                <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/paypal.png') }}" class="h50" alt=""> </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/stripe">
-                <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/stripe.png') }}" class="h50" alt=""> </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-12 mt-4">
-            <div class="card p-3">
-                <p class="mb-0 fw-bold h4">Payment Methods</p>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="card p-3">
-                <div class="card-body border p-0">
-                    <p> <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample"> <span class="fw-bold">PayPal</span> <span class="fab fa-cc-paypal"> </span> </a> </p>
-                    <div class="collapse p-3 pt-0" id="collapseExample">
-                        <div class="row">
-                            <div class="col-8">
-                                <p class="h4 mb-0">Summary</p>
-                                <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of product</span></p>
-                                <p class="mb-0"><span class="fw-bold">Price:</span><span class="c-green">:$100</span></p>
-                                <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque nihil neque quisquam aut repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab quis, iste harum ipsum hic, nemo qui!</p>
-                            </div>
-                        </div>
-                    <div class="col-12">
-                        <div class="btn btn-primary payment"> Make Payment </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="card-body border p-0">
-                    <p> <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample"> <span class="fw-bold">Credit Card</span> <span class=""> <span class="fab fa-cc-amex"></span> <span class="fab fa-cc-mastercard"></span> <span class="fab fa-cc-discover"></span> </span> </a> </p>
-                    <div class="collapse show p-3 pt-0" id="collapseExample">
-                        <div class="row">
-                            <div class="col-lg-5 mb-lg-0 mb-3">
-                                <p class="h4 mb-0">Summary</p>
-                                <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of product</span> </p>
-                                <p class="mb-0"> <span class="fw-bold">Price:</span> <span class="c-green">:$100</span> </p>
-                                <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque nihil neque quisquam aut repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab quis, iste harum ipsum hic, nemo qui!</p>
-                            </div>
-                            <div class="col-lg-7">
-                                <form action="" class="form">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">Card Number</label> </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">MM / yy</label> </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form__div"> <input type="password" class="form-control" placeholder=" "> <label for="" class="form__label">cvv code</label> </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">name on the card</label> </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="btn btn-primary w-100">Sumbit</div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
+  <head>
+  	<title>Trang chủ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	
+	<link rel="stylesheet" href="{{ asset('colorlib/css/ionicons.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('colorlib/css/style.css') }}">
+  </head>
+  <body>
+		<section class="ftco-section" id="buttons">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 d-flex" style="justify-content: space-betwee;">
+						<a href="/profile">Profile</a>
+						<a href="/logout">Logout</a>
+					</div>
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<h2 class="heading-section"> What do you want to test ?</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 mb-3">
+						<a href="/payment">
+                            <button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+                                <div class="icon icon-left icon-primary d-flex align-items-center justify-content-center">
+                                    <i class="ion-ios-cash"></i>
+                                </div>
+                                <div class="text text-right">
+                                    <h4>3</h4>
+                                    <span>Payment</span>
+                                </div>
+                            </button>
+                        </a>
+					</div>
+                    <div class="col-md-3 mb-3">
+						<a href="/login">
+                            <button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+                                <div class="icon icon-left icon-quarternary d-flex align-items-center justify-content-center">
+                                    <i class="ion-ios-people"></i>
+                                </div>
+                                <div class="text text-right">
+                                    <h4>1</h4>
+                                    <span>Login</span>
+                                </div>
+                            </button>
+                        </a>
+					</div>
+					<div class="col-md-3 mb-3">
+						<a href="/chat">
+                            <button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+                                <div class="icon icon-left icon-secondary d-flex align-items-center justify-content-center">
+                                    <i class="ion-ios-chatboxes"></i>
+                                </div>
+                                <div class="text text-right">
+                                    <h4>0</h4>
+                                    <span>Chat</span>
+                                </div>
+                            </button>
+                        </a>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+							<div class="icon icon-left icon-tertiary d-flex align-items-center justify-content-center">
+								<i class="ion-ios-pulse"></i>
+							</div>
+							<div class="text text-right">
+								<h4>68 %</h4>
+								<span>Bounce Rate</span>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>275</h4>
+								<span>New Projects</span>
+							</div>
+							<div class="icon icon-right icon-quarternary d-flex align-items-center justify-content-center">
+								<i class="ion-ios-brush"></i>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>109</h4>
+								<span>New Clients</span>
+							</div>
+							<div class="icon icon-right icon-primary d-flex align-items-center justify-content-center">
+								<i class="ion-ios-chatboxes"></i>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>68 %</h4>
+								<span>Conversion Rate</span>
+							</div>
+							<div class="icon icon-right icon-secondary d-flex align-items-center justify-content-center">
+								<i class="ion-ios-pulse"></i>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>343</h4>
+								<span>Support Tickets</span>
+							</div>
+							<div class="icon icon-right icon-tertiary d-flex align-items-center justify-content-center">
+								<i class="ion-ios-pricetag"></i>
+							</div>
+						</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-primary w-100 align-items-stretch d-flex">
+							<div class="icon icon-left d-flex align-items-center justify-content-center">
+								<i class="ion-ios-brush"></i>
+							</div>
+							<div class="text text-right">
+								<h4>275</h4>
+								<span>New Posts</span>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-secondary w-100 align-items-stretch d-flex">
+							<div class="icon icon-left d-flex align-items-center justify-content-center">
+								<i class="ion-ios-chatboxes"></i>
+							</div>
+							<div class="text text-right">
+								<h4>109</h4>
+								<span>New Comment</span>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-tertiary w-100 align-items-stretch d-flex">
+							<div class="icon icon-left d-flex align-items-center justify-content-center">
+								<i class="ion-ios-pulse"></i>
+							</div>
+							<div class="text text-right">
+								<h4>68 %</h4>
+								<span>Bounce Rate</span>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-quarternary w-100 align-items-stretch d-flex">
+							<div class="icon icon-left d-flex align-items-center justify-content-center">
+								<i class="ion-ios-people"></i>
+							</div>
+							<div class="text text-right">
+								<h4>343</h4>
+								<span>Total Visits</span>
+							</div>
+						</button>
+					</div>
+
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-quarternary w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>275</h4>
+								<span>New Projects</span>
+							</div>
+							<div class="icon icon-right d-flex align-items-center justify-content-center">
+								<i class="ion-ios-briefcase"></i>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-primary w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>109</h4>
+								<span>New Clients</span>
+							</div>
+							<div class="icon icon-right d-flex align-items-center justify-content-center">
+								<i class="ion-ios-people"></i>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-secondary w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>68 %</h4>
+								<span>Conversion Rate</span>
+							</div>
+							<div class="icon icon-right d-flex align-items-center justify-content-center">
+								<i class="ion-ios-pulse"></i>
+							</div>
+						</button>
+					</div>
+					<div class="col-md-3 mb-3">
+						<button type="button" class="btn btn-tertiary w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>343</h4>
+								<span>Support Tickets</span>
+							</div>
+							<div class="icon icon-right d-flex align-items-center justify-content-center">
+								<i class="ion-ios-pricetag"></i>
+							</div>
+						</button>
+					</div>
+				</div>
+			</div>
+	  </section>
+	  <!-- - - - - -end- - - - -  -->
+
+    <script src="{{ asset('colorlib/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('colorlib/js/popper.js') }}"></script>
+    <script src="{{ asset('colorlib/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('colorlib/js/main.js') }}"></script>
+  </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use DB;
+use Log;
 use Config;
 use App\Models\User;
 use App\Models\Payment;
@@ -16,9 +17,9 @@ class PaypayServices
     {
         $this->client = new Client(
             [
-                'API_KEY' => Config::get('env.paypay_key'),
-                'API_SECRET' => Config::get('env.paypay_secret'),
-                'MERCHANT_ID' => Config::get('env.paypay_merchant')
+                'API_KEY' => Config::get('env.paypay.key'),
+                'API_SECRET' => Config::get('env.paypay.secret'),
+                'MERCHANT_ID' => Config::get('env.paypay.merchant')
             ],
             false
         );
@@ -41,7 +42,7 @@ class PaypayServices
         $CQCPayload->setAmount($amount);
         // Configure redirects
         $CQCPayload->setRedirectType('APP_DEEP_LINK');
-        $CQCPayload->setRedirectUrl(Config::get('env.app_url'));
+        $CQCPayload->setRedirectUrl(Config::get('env.app_url') . '/payment');
         // Get data for QR code
         $response = $this->client->code->createQRCode($CQCPayload);
 
@@ -60,12 +61,10 @@ class PaypayServices
         return $this->client->payment->cancelPayment("Consultant-" . $request->consultant . "-Advisor-" . $request->advisor);
     }
 
-
-    public function webhookPaymentTransaction(Request $request)
+    public function webhookPaymentTransaction($request)
     {
         $payload = json_decode($request->getContent(), true);
         Log::info($payload);
-        Log::info($payload['notification_type']);
         if ($payload['notification_type'] == 'Transaction' && $payload['state'] == 'COMPLETED' ) {
             $transaction = Payment::where('code', $payload['merchant_order_id'])->first();
             $transaction->status = 1;

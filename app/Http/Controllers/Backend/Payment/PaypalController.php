@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Backend\Payment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Payment;
 
 class PaypalController extends Controller
 {
     public function index(){
-        return view('paypal.index');
+        $payment = Payment::where('gate', 'paypal')->paginate(12);
+        return view('payment.paypal.index',compact('payment'));
     }
 }
