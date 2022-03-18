@@ -16,6 +16,12 @@ class PaypalController extends Controller
     public function paypal(Request $request)
     {
         $result = $this->paypalServices->paypalTransaction($request);
-        return response()->json($result);
+        return $result;
+    }
+
+    public function webhook(Request $request)
+    {
+        $result = $this->paypalServices->webhook($request);
+        return $result;
     }
 }

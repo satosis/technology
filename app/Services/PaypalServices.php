@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Log;
 use URL;
 use Config;
 use PayPal\Api\Item;
@@ -69,6 +70,13 @@ class PaypalServices
                 ->setTransactions(array($transaction));
             try {
                 $payment->create($this->apiContext);
+                Pay::create([
+                    'name'  => '123',
+                    'money' => $money,
+                    'gate'  => 'paypal', 
+                    'status' => 0,
+                    'code'  => $payment->id
+                ]);
             } catch (\PayPal\Exception\PPConnectionException $ex) {
                 if (Config::get('app.debug')) {
                     \Session::flash('toastr',[
@@ -92,4 +100,10 @@ class PaypalServices
             }
            
         }
+    public function webhook($request){
+        Log::info($request->all());
+        $pay = Pay::where('code', $request['resource']['id'])->first();
+        $pay->status = 1;
+        $pay->update();
+    }
 }
