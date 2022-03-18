@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row"> 
         <div class="col-10">
-            <a href="/">Quay lại</a>
+            <a href="/payment">Quay lại</a>
         </div>
         <div class="col-2 d-flex" style="justify-content: space-around;">
         <a href="{{ asset('docs/paypay.docx') }}" class="text-right">Tài liệu</a>
@@ -88,7 +88,7 @@
     $(function(){
         $('#paypay').on('click',function(){
             var amount = 100;
-            var url = "/api/paypay";
+            var url = "/api/payment/paypay";
             $.post({
                 url:url,
                 data:{amount:amount},

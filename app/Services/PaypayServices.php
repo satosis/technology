@@ -65,7 +65,6 @@ class PaypayServices
     {
         $payload = json_decode($request->getContent(), true);
         Log::info($payload);
-        Log::info($payload['notification_type']);
         if ($payload['notification_type'] == 'Transaction' && $payload['state'] == 'COMPLETED' ) {
             $transaction = Payment::where('code', $payload['merchant_order_id'])->first();
             $transaction->status = 1;

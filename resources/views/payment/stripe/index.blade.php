@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row"> 
         <div class="col-11">
-            <a href="/">Quay lại</a>
+            <a href="/payment">Quay lại</a>
         </div>
         <div class="col-1 d-flex" style="justify-content: space-around;">  
         <a href="https://viblo.asia/p/dung-thu-stripe-phan-1-maGK7j1D5j2">Docs</a>

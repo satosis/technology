@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class PaypayController extends Controller
 {
     public function index(){
-        return view('paypay.index');
+        return view('payment.paypay.index');
     }
 }

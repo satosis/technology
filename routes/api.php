@@ -20,22 +20,25 @@ use App\Http\Controllers\Api\Payment\StripeController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::group(['prefix' => 'paypay'],
+Route::group(['prefix' => 'payment'],
     function () {
-        Route::post('/', [PaypayController::class, 'paypay']); 
-        Route::post('/webhook', [PaypayController::class, 'webhook']);
-    }
-);
-Route::group(['prefix' => 'stripe'],
-    function () {
-        Route::post('/', [StripeController::class, 'paypal']); 
-        Route::post('/webhook', [StripeController::class, 'webhook']);
-    }
-);
-Route::group(['prefix' => 'paypal'],
-    function () {
-        Route::post('/', [PaypalController::class, 'paypal']); 
-        Route::post('/webhook', [PaypalController::class, 'webhook']);
+        Route::group(['prefix' => 'paypay'],
+            function () {
+                Route::post('/', [PaypayController::class, 'paypay']); 
+                Route::post('/webhook', [PaypayController::class, 'webhook']);
+            }
+        );
+        Route::group(['prefix' => 'stripe'],
+            function () {
+                Route::post('/', [StripeController::class, 'paypal']); 
+                Route::post('/webhook', [StripeController::class, 'webhook']);
+            }
+        );
+        Route::group(['prefix' => 'paypal'],
+            function () {
+                Route::post('/', [PaypalController::class, 'paypal']); 
+                Route::post('/webhook', [PaypalController::class, 'webhook']);
+            }
+        );
     }
 );
