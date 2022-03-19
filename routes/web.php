@@ -27,7 +27,7 @@ use App\Http\Controllers\Backend\Profile\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/profile', [UserController::class, 'index']);
+Route::get('/profile', [UserController::class, 'index'])->middleware('auth');
 
 Route::group(['prefix' => 'login'],
     function () {
@@ -61,11 +61,16 @@ Route::group(['prefix' => 'login'],
     }
 );
 
-Route::group(['prefix' => 'chat'],
+Route::group(['prefix' => 'chat','middleware' => 'auth'],
     function () {
         Route::get('/', [ChatController::class, 'index']);
-        Route::get('/twilio', [TwilioController::class, 'index']);
-    }
+        Route::group(['prefix' => 'twilio'],
+        function () {
+            Route::get('/', [TwilioController::class, 'index']);
+            Route::get('/{id}', [TwilioController::class, 'chat']);
+        }
+        );  
+    }   
 );
 
 Auth::routes();

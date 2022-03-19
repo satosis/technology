@@ -20,7 +20,7 @@ class GoogleController extends Controller
       return redirect()->to('/');
     }
     function createUser($getInfo){ 
-    $user = User::where('provider_id', $getInfo->id)->first();
+    $user = User::where('email', $getInfo->email)->first();
     if (!$user) {
          $user = User::create([
             'name'     => $getInfo->name,

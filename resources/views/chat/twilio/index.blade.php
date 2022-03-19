@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-10">
+        <div class="col-10"> 
             <a href="/chat">Quay lại</a>
         </div>
         <div class="col-2 d-flex" style="justify-content: space-around;">
@@ -27,8 +27,7 @@
     <main class="content">
     <div class="container p-0">
 			<div class="row g-0">
-				<div class="col-12 col-lg-5 col-xl-3 border-right">
-
+				<div class="col-12 col-lg-5 col-xl-3 border-right"> 
 					<div class="px-4 d-none d-md-block">
 						<div class="d-flex align-items-center">
 							<div class="flex-grow-1">
@@ -36,82 +35,17 @@
 							</div>
 						</div>
 					</div>
-
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="badge bg-success float-right">5</div>
+					@foreach($user as $list)
+					<a href="/chat/twilio/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
 						<div class="d-flex align-items-start">
-							<img src="{{ asset('img/avatar5.png') }}" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
+							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" alt="Jennifer Chang" width="40" height="40">
 							<div class="flex-grow-1 ml-3">
-								Vanessa Tucker
-								<div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="badge bg-success float-right">2</div>
-						<div class="d-flex align-items-start">
-							<img src="{{ asset('img/avatar2.png') }}" class="rounded-circle mr-1" alt="William Harris" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								William Harris
-								<div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								Sharon Lessman
-								<div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle mr-1" alt="Christina Mason" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								Christina Mason
+								{{ $list->name }}
 								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
 							</div>
 						</div>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="{{ asset('img/avatar5.png') }}" class="rounded-circle mr-1" alt="Fiona Green" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								Fiona Green
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="{{ asset('img/avatar2.png') }}" class="rounded-circle mr-1" alt="Doris Wilder" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								Doris Wilder
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle mr-1" alt="Haley Kennedy" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								Haley Kennedy
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Jennifer Chang" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
-								Jennifer Chang
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-
+					@endforeach
 					<hr class="d-block d-lg-none mt-1 mb-0">
 				</div>
 				<div class="col-12 col-lg-7 col-xl-9">
@@ -284,9 +218,9 @@
 	</div>
 </main>
 </div>
+<script src="https://media.twiliocdn.com/sdk/js/chat/v3.3/twilio-chat.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(function(){
         $('#paypal').on('click',function(){

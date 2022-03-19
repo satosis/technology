@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Payment\PaypayController;
 use App\Http\Controllers\Api\Payment\PaypalController;
 use App\Http\Controllers\Api\Payment\StripeController;
+use App\Http\Controllers\Api\Chat\TwilioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +41,15 @@ Route::group(['prefix' => 'payment'],
                 Route::post('/webhook', [PaypalController::class, 'webhook']);
             }
         );
+    }
+);
+Route::group(['prefix' => 'chat'],
+    function () {
+        Route::group(['prefix' => 'twilio'],
+        function () {
+            Route::post('/token', [TwilioController::class, 'token']); 
+            Route::post('/webhook', [TwilioController::class, 'webhook']);
+        }
+    );
     }
 );
