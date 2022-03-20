@@ -12,11 +12,13 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-10"> 
+        <div class="col-9"> 
             <a href="/chat">Quay lại</a>
         </div>
-        <div class="col-2 d-flex" style="justify-content: space-around;">
-            <a href="https://www.youtube.com/watch?v=fUzTsIeonW4">Tutorial</a>
+        <div class="col-3 d-flex" style="justify-content: space-around;">
+			<a href="{{ asset('docs/twilio.docx') }}" class="text-right">Tài liệu</a>
+            <a href="https://www.twilio.com/blog/add-chat-laravel-php-app-twilio-chat">Tutorial Chat</a>
+            <a href="https://www.twilio.com/docs/conversations/media-support-conversations">Tutorial File</a>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
@@ -68,7 +70,6 @@
 
 					<div class="position-relative">
 						<div class="chat-messages p-4">
-
 							<div class="chat-message-right pb-4">
 								<div>
 									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
@@ -220,7 +221,7 @@
 </div>
 <script src="https://media.twiliocdn.com/sdk/js/chat/v3.3/twilio-chat.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
 <script>
     $(function(){
         $('#paypal').on('click',function(){

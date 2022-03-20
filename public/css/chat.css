@@ -12,6 +12,14 @@ body{margin-top:20px;}
   height: 50px !important;
   object-fit: contain;
 }
+video{
+    height: 400px;
+}
+.video{
+    width: 100%;
+    box-sizing: content-box;
+    overflow: hidden;
+}
 .chat-messages {
     display: flex;
     flex-direction: column;
@@ -34,7 +42,16 @@ body{margin-top:20px;}
     display: flex;
     flex-shrink: 0
 }
-
+.img-2{
+    position: absolute;  
+    top:0;
+    right: 0;
+    margin: 1px;
+    margin-right: 80px;
+    width: 35px;
+    height: 35px;
+    z-index: 9999;
+}
 .chat-message-left {
     margin-right: auto
 }

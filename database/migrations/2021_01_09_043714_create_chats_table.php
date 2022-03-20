@@ -18,6 +18,7 @@ class CreateChatsTable extends Migration
             $table->string('author')->nullable();
             $table->string('other')->nullable();
             $table->text('chat')->nullable();
+            $table->string('type')->nullable();
             $table->string('room')->nullable(); 
             $table->string('gate')->nullable(); 
             $table->string('code')->nullable(); 

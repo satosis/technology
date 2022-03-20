@@ -29,7 +29,7 @@
         "cors": "^2.8.5",
         "dotenv": "^16.0.0",
         "express": "^4.17.3",
-        "laravel-echo": "^1.11.3",
+        "laravel-echo": "^1.11.4",
         "moment": "^2.29.1",
         "pusher-js": "^7.0.6",
         "simple-peer": "^9.11.1",

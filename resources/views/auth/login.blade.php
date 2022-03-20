@@ -18,8 +18,8 @@
     </div>
     <div class="row">
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/payment/paypay">
-                <div class="card p-3">
+            <a href="/login/line">
+                <div class="card p-3" id="line">
                     <div class="img-box"> <img src="{{ asset('img/line.png') }}" class="h50" alt=""> </div>
                 </div>
             </a>
@@ -100,7 +100,50 @@
         
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/line.js') }}"></script>
+<script>
+        function initialLiff(id){
+            liff.init({
+                liffId : id
+            })
+            .then(() =>{
+                if(liff.isLoggedIn ()){
+                    liff.getProfile().then(profile => {
+                        document.getElementById("name").innerHTML = profile.displayName;
+                        document.getElementById("picture").setAttribute('src',profile.pictureUrl);
+                        document.getElementById("statusMessage").innerHTML = profile.statusMessage;
+                        document.getElementById("id").innerHTML = profile.userId;
+                        document.getElementById("email").innerHTML = liff.email;
+                        document.getElementById("AccessToken").innerHTML = liff.getAccessToken();
+                        document.getElementById("IDToken").innerHTML = liff.getIDToken();
+                        document.getElementById("DecodedIDToken").innerHTML = liff.getDecodedIDToken();
+                        document.getElementById("status").innerHTML = liff.getFriendship();
+                        document.getElementById("environment").innerHTML = liff.getOS();
+                        document.getElementById("language").innerHTML = liff.getLanguage();
+                        document.getElementById("version").innerHTML = liff.getVersion();
+                        document.getElementById("isCLient").innerHTML = liff.isInClient();
+                        document.getElementById("context").innerHTML = liff.getContext();
+                        console.log("Context "+liff.getContext());
+                        console.log("Status "+liff.getFriendship());
+                    })
+                }
+            })
+            .catch( err => {
+                alert("error");
+            })
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initialLiff('1656899952-vBpeeKPE');
+        })
+        document.getElementById("login").addEventListener('click',function(){
+            liff.login();
+        })
+        document.getElementById("logout").addEventListener('click',function(){
+            liff.logout();
+            window.location.reload();
+        })
+    </script>
 </body>
 </html>

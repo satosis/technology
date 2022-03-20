@@ -46,7 +46,7 @@
                                     <i class="ion-ios-people"></i>
                                 </div>
                                 <div class="text text-right">
-                                    <h4>1</h4>
+                                    <h4>3</h4>
                                     <span>Login</span>
                                 </div>
                             </button>
@@ -59,22 +59,24 @@
                                     <i class="ion-ios-chatboxes"></i>
                                 </div>
                                 <div class="text text-right">
-                                    <h4>0</h4>
+                                    <h4>2</h4>
                                     <span>Chat</span>
                                 </div>
                             </button>
                         </a>
 					</div>
 					<div class="col-md-3 mb-3">
+						<a href="/video">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
 							<div class="icon icon-left icon-tertiary d-flex align-items-center justify-content-center">
 								<i class="ion-ios-pulse"></i>
 							</div>
 							<div class="text text-right">
-								<h4>68 %</h4>
-								<span>Bounce Rate</span>
+								<h4>2</h4>
+								<span>Video Call</span>
 							</div>
 						</button>
+                        </a>
 					</div>
 					<div class="col-md-3 mb-3">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">

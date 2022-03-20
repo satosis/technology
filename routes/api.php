@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Payment\PaypayController;
 use App\Http\Controllers\Api\Payment\PaypalController;
 use App\Http\Controllers\Api\Payment\StripeController;
-use App\Http\Controllers\Api\Chat\TwilioController;
+use App\Http\Controllers\Api\Chat\TwilioController as TwilioChatController;
+use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
+use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
+use App\Http\Controllers\Api\Video\PusherController as PusherVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +50,31 @@ Route::group(['prefix' => 'chat'],
     function () {
         Route::group(['prefix' => 'twilio'],
         function () {
-            Route::post('/token', [TwilioController::class, 'token']); 
-            Route::post('/webhook', [TwilioController::class, 'webhook']);
-        }
-    );
+            Route::post('/token', [TwilioChatController::class, 'token']); 
+            Route::post('/webhook', [TwilioChatController::class, 'webhook']);
+            }
+        );
+        Route::group(['prefix' => 'pusher'],
+        function () {
+            Route::post('/store', [PusherChatController::class, 'store']);
+            Route::post('/upload', [PusherChatController::class, 'upload']);
+            }
+        ); 
+    }
+);
+
+Route::group(['prefix' => 'video'],
+    function () {
+        Route::group(['prefix' => 'twilio'],
+        function () {
+            Route::post('/token', [TwilioVideoController::class, 'token']); 
+            }
+        );
+        Route::group(['prefix' => 'pusher'],
+        function () {
+            Route::post('/store', [PusherVideoController::class, 'store']);
+            Route::post('/upload', [PusherVideoController::class, 'upload']);
+            }
+        ); 
     }
 );

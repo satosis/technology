@@ -11,10 +11,34 @@ use App\Models\User;
 use Twilio\Rest\Client;
 use Twilio\Jwt\AccessToken;
 use Twilio\Jwt\Grants\ChatGrant;
+use Twilio\Jwt\Grants\VideoGrant;
 
 class TwilioServices
 { 
-    public function token($request)
+    public function tokenVideo(){
+        $accountSid     = \Config::get('env.twilio.account_sid');
+        $apiKeySid      = \Config::get('env.twilio.api_key_sid');
+        $apiKeySecret   = \Config::get('env.twilio.api_key_secret');
+
+        $identity = uniqid();
+        // Create an Access Token
+        $token = new AccessToken(
+            $accountSid,
+            $apiKeySid,
+            $apiKeySecret,
+            3600,
+            $identity,
+        );
+
+        // Grant access to Video
+        $grant = new VideoGrant();
+        $grant->setRoom('cool room');
+        $token->addGrant($grant);
+
+        // Serialize the token as a JWT
+        return $token->toJWT();
+    }
+    public function tokenChat($request)
     {
         $token = new AccessToken(
             Config::get('env.twilio.account_sid'),
@@ -84,6 +108,7 @@ class TwilioServices
                 'author' => $chat->author,
                 'other' => $chat->other,
                 'chat' => $request['Body'],
+                'type' => $request['Body'] ? 'text' : 'media',
                 'room' => $chat->room,
                 'gate' => $chat->gate,
                 'code' => $chat->code,
@@ -92,7 +117,8 @@ class TwilioServices
             Chat::create([
                 'author' => $chat->other,
                 'other' => $chat->author,
-                'chat' => $request['Body'],
+                'chat' => $request['Body'] ?? $request['Media']['Sid'],
+                'type' => $request['Body'] ? 'text' : 'media',
                 'room' => $chat->room,
                 'gate' => $chat->gate,
                 'code' => $chat->code,

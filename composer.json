@@ -16,6 +16,7 @@
         "linecorp/line-bot-sdk": "^3.6",
         "paypal/rest-api-sdk-php": "^1.14",
         "paypayopa/php-sdk": "^2.0",
+        "pusher/pusher-php-server": "^7.0",
         "stripe/stripe-php": "^7.116",
         "twilio/sdk": "^6.32"
     },

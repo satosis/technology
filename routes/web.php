@@ -10,7 +10,11 @@ use App\Http\Controllers\Backend\Login\GoogleController;
 use App\Http\Controllers\Backend\Login\FacebookController;
 use App\Http\Controllers\Backend\Login\LineController;
 use App\Http\Controllers\Backend\Chat\ChatController;
-use App\Http\Controllers\Backend\Chat\TwilioController;
+use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
+use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
+use App\Http\Controllers\Backend\Video\VideoController;
+use App\Http\Controllers\Backend\Video\TwilioController as TwilioVideoController;
+use App\Http\Controllers\Backend\Video\PusherController as PusherVideoController;
 use App\Http\Controllers\Backend\Profile\UserController;
 
 /*
@@ -45,6 +49,12 @@ Route::group(['prefix' => 'payment'],
 
 Route::group(['prefix' => 'login'],
     function () { 
+        Route::group(['prefix' => 'line'],
+            function () {
+                Route::get('/', [LineController::class, 'redirect']);
+                Route::get('/callback', [LineController::class, 'callback']);
+            }
+        );
         Route::group(['prefix' => 'google'],
             function () {
                 Route::get('/', [GoogleController::class, 'redirect']);
@@ -57,7 +67,6 @@ Route::group(['prefix' => 'login'],
             Route::get('/callback', [FacebookController::class, 'callback']);
         }
     );
-        Route::get('/line', [LineController::class, 'index']);
     }
 );
 
@@ -65,14 +74,37 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
     function () {
         Route::get('/', [ChatController::class, 'index']);
         Route::group(['prefix' => 'twilio'],
-        function () {
-            Route::get('/', [TwilioController::class, 'index']);
-            Route::get('/{id}', [TwilioController::class, 'chat']);
-        }
+            function () {
+                Route::get('/', [TwilioChatController::class, 'index']);
+                Route::get('/{id}', [TwilioChatController::class, 'chat']);
+            }
         );  
+        Route::group(['prefix' => 'pusher'],
+            function () {
+                Route::get('/', [PusherChatController::class, 'index']); 
+                Route::get('/{id}', [PusherChatController::class, 'chat']);
+            }
+        ); 
     }   
 );
 
+Route::group(['prefix' => 'video','middleware' => 'auth'],
+    function () {
+        Route::get('/', [VideoController::class, 'index']);
+        Route::group(['prefix' => 'twilio'],
+            function () {
+                Route::get('/', [TwilioVideoController::class, 'index']);
+                Route::get('/{id}', [TwilioVideoController::class, 'video']);
+            }
+        );  
+        Route::group(['prefix' => 'pusher'],
+            function () {
+                Route::get('/', [PusherVideoController::class, 'index']); 
+                Route::get('/{id}', [PusherVideoController::class, 'video']);
+            }
+        ); 
+    }   
+);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

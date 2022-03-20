@@ -16,7 +16,7 @@ class TwilioController extends Controller
 
     public function token(Request $request)
     {
-        $result = $this->twilioServices->token($request);
+        $result = $this->twilioServices->tokenChat($request);
         return $result;
     }
     

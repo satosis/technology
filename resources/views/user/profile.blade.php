@@ -49,7 +49,7 @@
       </a>
       @endif
       @if(\Auth::user()->provider_name == 'facebook')
-      <a href="https://developers.facebook.com/apps/232840041592445/dashboard/">
+      <a href="https://developers.facebook.com/apps/325986579363528/dashboard/">
         <div class="title btn btn-danger btn-outline btn-lg">Config Facebook</div>
       </a>
       @endif

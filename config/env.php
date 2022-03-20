@@ -33,6 +33,10 @@ return [
         'channel_id' => env('LINE_CHANNEL_ID'),
         'channel_secret' => env('LINE_CHANNEL_SECRET'),
         'channel_token' => env('LINE_CHANNEL_TOKEN'),
+        'callback' => env('LINE_CALLBACK_URL'),
+        'verify' => 'https://api.line.me/oauth2/v2.1/verify',
+        'profile' => 'https://api.line.me/v2/profile',
+        'token' => 'https://api.line.me/oauth2/v2.1/token',
     ], 
     'twilio' => [
         'account_sid'        => env('TWILIO_AUTH_SID',null),

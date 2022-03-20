@@ -13,10 +13,10 @@
 		</div>
 	</div>
 
-	<div class="position-relative">
-         <div v-if="messages.length == 0"  class="chat-messages p-4 no-message">
+<div v-if="messages.length == 0"  class="chat-messages p-4 no-message">
            <p> Không có tin nhắn</p>
         </div> 
+	<div class="position-relative" v-else> 
 		<div class="chat-messages p-4">
             <div  v-for="message in messages" v-bind:key="message.id">
 			<div class="chat-message-right pb-4"  v-if="message.author === authUser.email">
@@ -47,6 +47,8 @@
 	<div class="flex-grow-0 py-3 px-4 border-top">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Type your message" autofocus v-on:keyup.enter="sendMessage" v-model="newMessage">
+            <label for="img"><img src="/img/picture.png" class="img-2"></label>
+            <input type="file" id="img" class="d-none" accept="image/*" @change="sendMediaMessage">
 			<button class="btn btn-primary"  v-on:click="sendMessage">Send</button>
 		</div>
 	</div>
@@ -126,9 +128,8 @@ export default {
             target.value = "";
         },
         async pushToArray (message) {
-            console.log(message.type);
             if (message.type === 'media') {
-                const mediaUrl = await message.media.getContentUrl()
+                const mediaUrl = await message.media.getContentTemporaryUrl()
                 this.messages.push({
                     type: message.type,
                     author: message.author,

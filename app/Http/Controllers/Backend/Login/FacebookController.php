@@ -17,7 +17,7 @@ class FacebookController extends Controller
       $getInfo = Socialite::driver('facebook')->user(); 
       $user = $this->createUser($getInfo,'facebook'); 
       auth()->login($user); 
-      return redirect()->to('/');
+      return redirect()->to('/profile');
     }
     function createUser($getInfo){
     $user = User::where('email', $getInfo->email)->first();
