@@ -14,6 +14,13 @@ class TwilioController extends Controller
         $this->twilioServices  = $twilioServices;
     } 
 
+    public function list(Request $request, $room)
+    {
+        $result = $this->twilioServices->list($room);
+        return $result;
+    }
+    
+
     public function token(Request $request)
     {
         $result = $this->twilioServices->tokenChat($request);

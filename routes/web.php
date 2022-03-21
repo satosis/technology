@@ -14,7 +14,6 @@ use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Backend\Video\VideoController;
 use App\Http\Controllers\Backend\Video\TwilioController as TwilioVideoController;
-use App\Http\Controllers\Backend\Video\PusherController as PusherVideoController;
 use App\Http\Controllers\Backend\Profile\UserController;
 
 /*
@@ -32,12 +31,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/profile', [UserController::class, 'index'])->middleware('auth');
-
-Route::group(['prefix' => 'login'],
-    function () {
-        Route::get('/paypay', [PaypayController::class, 'index']);
-    }
-);
+ 
 Route::group(['prefix' => 'payment'],
     function () {
         Route::get('/', [PaymentController::class, 'index']);

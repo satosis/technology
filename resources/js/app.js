@@ -20,7 +20,6 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component('pusher-chat-component', require('./components/Pusher/ChatComponent.vue').default)
 Vue.component('twilio-chat-component', require('./components/Twilio/ChatComponent.vue').default)
-Vue.component('pusher-video-component', require('./components/Pusher/VideoComponent.vue').default)
 Vue.component('twilio-video-component', require('./components/Twilio/VideoComponent.vue').default)
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -33,14 +32,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     data: {
+        chat: [],
     }, 
     created() {
-        const userId = $('meta[name="userId"]').attr('content');
-        alert(userId);
-        const friendId = $('meta[name="friendId"]').attr('content');
-        Echo.private('Chat.' + friendId  + '.' + userId)
+        Echo.private('chat')
         .listen('BroadcastChat', (e) => {
-            this.chat.push(e.data);
+            this.chat.push(e.chat);
         }); 
     }
 });

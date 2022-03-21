@@ -17,7 +17,7 @@
         </div> 
 	<div class="position-relative" v-else> 
 		<div class="chat-messages p-4">
-            <div  v-for="message in chat" v-bind:key="message.id">
+            <div v-for="(message,index) in chat" :key="index">
 			<div class="chat-message-right pb-4"  v-if="message.author == authUser.id">
 				<div>
 					<img :src="authUser.avatar" class="rounded-circle mr-1" :alt="authUser.name" width="40" height="40">
@@ -25,7 +25,8 @@
 				</div>
 				<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
 					<div class="font-weight-bold mb-1">You</div>
-						{{  message.chat }}
+					<img :src="message.chat" v-if="message.type=='image'" class="h200"/>
+					    <p v-else>{{ message.chat }}</p>
 				</div>
 			</div>
 
@@ -36,7 +37,8 @@
 				</div>
 				<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
 					<div class="font-weight-bold mb-1">{{ otherUser.name}}</div> 
-						{{  message.chat }}
+					<img :src="message.chat" v-if="message.type=='image'" class="h200"/>
+					    <p v-else>{{ message.chat }}</p>
 				</div>
 			</div>
         </div>
@@ -56,6 +58,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
     name: "ChatComponent",
     props: {
@@ -81,29 +84,27 @@ export default {
             sendChat: function(e) {
                 if (this.message != '') {
                     var data = {
-                        chat: this.message,
+                        message: this.message,
                         other: this.otherUser.id,
                         type : 'text',
-                        user_id: this.authUser.id,
-                        created_at: new Date().toLocaleString()
+                        author: this.authUser.id,
                     }
                     this.message = ''; 
                     axios.post('/api/chat/pusher/store',data).then((response) => {
-                        this.chat.push(response.data);
+                        this.chat.push(response.data)
                     })
-                    
                 }
             },
-            update: function(type) {
-                const data = new FormData();
+             update: function(type) {
+                const data = new FormData(); 
                 if(type == 'image')
-                    data.append('chat', this.$refs.photo.files[0]);
+                    data.append('message', this.$refs.photo.files[0]);
                 data.append('other', this.otherUser.id);
-                data.append('user_id',  this.authUser.id);
+                data.append('author',  this.authUser.id);
                 data.append('type', type);
-                data.append('created_at', new Date().toLocaleString());
-                axios.post('/api/chat/pusher/upload', data)
-                    .then(response => this.chat.push(response.data));
+                axios.post('/api/chat/pusher/upload',data).then((response) => {
+                    this.chat.push(response.data)
+                })
             },
         }
     }

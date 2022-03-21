@@ -15,6 +15,10 @@ use Twilio\Jwt\Grants\VideoGrant;
 
 class TwilioServices
 { 
+    public function list($room){
+        $list = Chat::where('gate', 'twilio')->whereNotNull('chat')->where('room', $room)->get();
+        return $list;
+    }
     public function tokenVideo(){
         $accountSid     = \Config::get('env.twilio.account_sid');
         $apiKeySid      = \Config::get('env.twilio.api_key_sid');

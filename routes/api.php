@@ -8,7 +8,6 @@ use App\Http\Controllers\Api\Payment\StripeController;
 use App\Http\Controllers\Api\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
-use App\Http\Controllers\Api\Video\PusherController as PusherVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +49,7 @@ Route::group(['prefix' => 'chat'],
     function () {
         Route::group(['prefix' => 'twilio'],
         function () {
+            Route::get('/list/{room}', [TwilioChatController::class, 'list']); 
             Route::post('/token', [TwilioChatController::class, 'token']); 
             Route::post('/webhook', [TwilioChatController::class, 'webhook']);
             }
@@ -70,11 +70,5 @@ Route::group(['prefix' => 'video'],
             Route::post('/token', [TwilioVideoController::class, 'token']); 
             }
         );
-        Route::group(['prefix' => 'pusher'],
-        function () {
-            Route::post('/store', [PusherVideoController::class, 'store']);
-            Route::post('/upload', [PusherVideoController::class, 'upload']);
-            }
-        ); 
     }
 );

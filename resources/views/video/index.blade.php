@@ -24,14 +24,6 @@
                 </div>
             </a>
         </div>
-        <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/video/pusher">
-                <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/pusher.png') }}" class="w250" alt=""> </div>
-                </div>
-            </a>
-        </div>
-         
     </div>
 </div>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

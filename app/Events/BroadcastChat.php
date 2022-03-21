@@ -24,8 +24,8 @@ class BroadcastChat implements ShouldBroadcast
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-    public function broadcastOn()
+    public function broadcastOn() 
     {
-        return new PrivateChannel('Chat.'.$this->chat->author.'.'.$this->chat->other);
+        return new PrivateChannel('chat');
     }
 }

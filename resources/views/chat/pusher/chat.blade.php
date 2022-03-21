@@ -19,6 +19,7 @@
             <a href="/chat">Quay lại</a>
         </div>
         <div class="col-3 d-flex" style="justify-content: space-around;">
+			<a href="https://www.youtube.com/watch?v=OxuojwY9wXc&t=2059s">Youtube</a>
             <a href="https://pusher.com/tutorials/chat-laravel">Tutorial Chat</a>
             <a href="https://pusher.com/tutorials/photo-feed-laravel">Tutorial File</a>
         </div> 
@@ -40,7 +41,7 @@
 						</div>
 					</div>
 					@foreach($user as $list)
-					<a href="/chat/twilio/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
+					<a href="/chat/pusher/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
 						<div class="d-flex align-items-start">
 							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" alt="{{ $list->name }}" width="40" height="40">
 							<div class="flex-grow-1 ml-3">

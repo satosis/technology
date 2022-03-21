@@ -15,7 +15,7 @@
 		<section class="ftco-section" id="buttons">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2 d-flex" style="justify-content: space-betwee;">
+					<div class="col-md-2 d-flex" style="justify-content: space-between;">
 						<a href="/profile">Profile</a>
 						<a href="/logout">Logout</a>
 					</div>

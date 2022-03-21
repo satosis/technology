@@ -26,7 +26,8 @@
 				</div>
 				<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
 					<div class="font-weight-bold mb-1">You</div>
-						{{  message.body }}
+                    <img :src="message.body" v-if="message.type=='media'" class="h200"/>
+					<p v-else>{{ message.body }}</p>
 				</div>
 			</div>
 
@@ -37,7 +38,8 @@
 				</div>
 				<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
 					<div class="font-weight-bold mb-1">{{ otherUser.name}}</div>
-						{{  message.body }}
+						<img :src="message.body" v-if="message.type=='media'" class="h200"/>
+					    <p v-else>{{ message.body }}</p>
 				</div>
 			</div>
         </div>
@@ -101,7 +103,6 @@ export default {
              window.conversationsClient = ConversationsClient
             this.conversationsClient = await ConversationsClient.create(token)
             this.activeConversation = await (this.conversationsClient.getConversationByUniqueName(room));
-                console.log(1);
             this.activeConversation.getMessages()
                 .then((newMessage) => {
                     this.messages = [...this.messages, ...newMessage.items]
@@ -135,7 +136,7 @@ export default {
                     author: message.author,
                     body: mediaUrl,
                     mediaUrl
-                })
+                }) 
             } else {
                 this.messages.push({
                     type: message.type,

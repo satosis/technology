@@ -12,12 +12,14 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-10"> 
+	<div class="col-9"> 
             <a href="/chat">Quay lại</a>
         </div>
-        <div class="col-2 d-flex" style="justify-content: space-around;">
-            <a href="https://www.youtube.com/watch?v=fUzTsIeonW4">Tutorial</a>
-        </div>
+        <div class="col-3 d-flex" style="justify-content: space-around;">
+			<a href="https://www.youtube.com/watch?v=OxuojwY9wXc&t=2059s">Youtube</a>
+            <a href="https://pusher.com/tutorials/chat-laravel">Tutorial Chat</a>
+            <a href="https://pusher.com/tutorials/photo-feed-laravel">Tutorial File</a>
+        </div> 
         <div class="col-12 mt-4">
             <div class="card p-3">
                 <img src="{{ asset('img/pusher.png') }}" class="h50">

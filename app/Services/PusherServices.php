@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
 class PusherServices
 { 
    public function chat($id){   
-        $chats = Chat::where('gate', 'pusher') 
+        $chats = Chat::where('gate', 'pusher')->whereNotNull('chat')
             ->where(function ($query) use ($id) { 
             $query->where('author', '=', Auth::id())->where('other', '=', $id);
             })->orWhere(function ($query) use ($id) {
@@ -25,20 +25,21 @@ class PusherServices
    }
    public function store($request) {  
     $chat = Chat::create([
-        'author'=> $request->user_id,
+        'author'=> $request->author,
         'other' => $request->other,
-        'chat'  => $request->chat,
+        'chat'  => $request->message,
         'type'  => $request->type,
         'gate'  => 'pusher'
     ]);  
     return $chat;
 	}
 	public function upload($request){ 
-		if ($request->hasFile('chat')) {
-				$file = $chat->store('public/chat');
+        $message = $request->message;
+		if ($request->hasFile('message')) {
+			$file = $message->store('public/chat');
 		} 
 		$chat = Chat::create([
-			'author'=> $request->user_id,
+			'author'=> $request->author,
 			'other' => $request->other,
 			'chat'  => Config::get('env.app_url') . Storage::url('public/chat/' . basename($file)) ,
 			'type'  => $request->type,

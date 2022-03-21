@@ -12,8 +12,15 @@ body{margin-top:20px;}
   height: 50px !important;
   object-fit: contain;
 }
+.h200{
+  height: 200px !important;
+  object-fit: contain;
+}
 video{
     height: 400px;
+}
+.chat-message-right .font-weight-bold{
+    float: right;
 }
 .video{
     width: 100%;
