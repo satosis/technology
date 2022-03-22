@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Payment\StripeController;
 use App\Http\Controllers\Api\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
+use App\Http\Controllers\Api\Sms\VonageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,4 +72,14 @@ Route::group(['prefix' => 'video'],
             }
         );
     }
+);
+
+Route::group(['prefix' => 'sms'],
+    function () {
+        Route::group(['prefix' => 'vonage'],
+            function () {
+                Route::post('/send', [VonageController::class, 'send']);
+            }
+        );  
+    }   
 );

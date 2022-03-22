@@ -81,7 +81,7 @@ export default {
         };
     },
        methods: {  
-            sendChat: function(e) {
+            async sendChat(e) {
                 if (this.message != '') {
                     var data = {
                         message: this.message,
@@ -90,19 +90,20 @@ export default {
                         author: this.authUser.id,
                     }
                     this.message = ''; 
-                    axios.post('/api/chat/pusher/store',data).then((response) => {
-                        this.chat.push(response.data)
+                    await axios.post('/api/chat/pusher/store',data).then((response) => {
+                        this.chat.push(response.data);
+                        this.$forceUpdate();
                     })
                 }
             },
-             update: function(type) {
+            async update(type) {
                 const data = new FormData(); 
                 if(type == 'image')
                     data.append('message', this.$refs.photo.files[0]);
                 data.append('other', this.otherUser.id);
                 data.append('author',  this.authUser.id);
                 data.append('type', type);
-                axios.post('/api/chat/pusher/upload',data).then((response) => {
+                await axios.post('/api/chat/pusher/upload',data).then((response) => {
                     this.chat.push(response.data)
                 })
             },

@@ -79,6 +79,19 @@
                         </a>
 					</div>
 					<div class="col-md-3 mb-3">
+						<a href="/sms">
+						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+							<div class="text text-left">
+								<h4>1</h4>
+								<span>SMS</span>
+							</div>
+							<div class="icon icon-right icon-primary d-flex align-items-center justify-content-center">
+								<i class="ion-ios-chatboxes"></i>
+							</div>
+						</button>
+                        </a>
+					</div>
+					<div class="col-md-3 mb-3">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
 							<div class="text text-left">
 								<h4>275</h4>
@@ -89,17 +102,7 @@
 							</div>
 						</button>
 					</div>
-					<div class="col-md-3 mb-3">
-						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
-							<div class="text text-left">
-								<h4>109</h4>
-								<span>New Clients</span>
-							</div>
-							<div class="icon icon-right icon-primary d-flex align-items-center justify-content-center">
-								<i class="ion-ios-chatboxes"></i>
-							</div>
-						</button>
-					</div>
+					
 					<div class="col-md-3 mb-3">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
 							<div class="text text-left">

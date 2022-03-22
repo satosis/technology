@@ -44,5 +44,10 @@ return [
         'api_key_secret'     => env('TWILIO_API_SECRET', null),
         'account_token'      => env('TWILIO_AUTH_TOKEN', null),
         'service_id'         => env('TWILIO_SERVICE_SID', null),
+    ],
+    'nexmo' => [
+        'key'        => env('NEXMO_KEY',null),
+        'secret'     => env('NEXMO_SECRET', null),
+        'sender'     => env('NEXMO_FROM_SEND', null),
     ]
 ]; 

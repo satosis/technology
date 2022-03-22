@@ -37,7 +37,9 @@ const app = new Vue({
     created() {
         Echo.private('chat')
         .listen('BroadcastChat', (e) => {
+            console.log(e.chat);
             this.chat.push(e.chat);
+            this.$forceUpdate();
         }); 
     }
 });

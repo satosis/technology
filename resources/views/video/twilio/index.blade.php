@@ -220,20 +220,5 @@
 <script src="https://media.twiliocdn.com/sdk/js/chat/v3.3/twilio-chat.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-<script>
-    $(function(){
-        $('#paypal').on('click',function(){
-            var amount = 100;
-            var url = "/api/payment/paypal";
-            $.post({
-                url:url,
-                data:{amount:amount},
-                success : function(res){
-                    window.location.href = res
-                }
-            })
-        })
-    })
-</script>
 </body>
 </html>

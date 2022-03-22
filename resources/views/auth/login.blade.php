@@ -12,8 +12,21 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-10">
+        <div class="col-9">
             <a href="/">Quay lại</a>
+        </div>
+        <div class="col-3 d-flex" style="justify-content: space-around;align-items: center;margin-bottom:15px">
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Line tutorial
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="https://developers.line.biz/ja/reference/line-login">Login</a></li>
+                <li><a class="dropdown-item" href="https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission">Add email </a></li>
+                <li><a class="dropdown-item" href="https://developers.line.biz/en/docs/line-login/link-a-bot/#displaying-the-option-to-add-your-line-official-account-as-a-friend">Add friend</a></li>
+            </ul>
+            </div>
+            <a href="https://viblo.asia/p/login-google-api-trong-laravel-7x-LzD5d1VwKjY">Google</a>
         </div>
     </div>
     <div class="row">
@@ -101,49 +114,6 @@
     </div>
 </div>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/line.js') }}"></script>
-<script>
-        function initialLiff(id){
-            liff.init({
-                liffId : id
-            })
-            .then(() =>{
-                if(liff.isLoggedIn ()){
-                    liff.getProfile().then(profile => {
-                        document.getElementById("name").innerHTML = profile.displayName;
-                        document.getElementById("picture").setAttribute('src',profile.pictureUrl);
-                        document.getElementById("statusMessage").innerHTML = profile.statusMessage;
-                        document.getElementById("id").innerHTML = profile.userId;
-                        document.getElementById("email").innerHTML = liff.email;
-                        document.getElementById("AccessToken").innerHTML = liff.getAccessToken();
-                        document.getElementById("IDToken").innerHTML = liff.getIDToken();
-                        document.getElementById("DecodedIDToken").innerHTML = liff.getDecodedIDToken();
-                        document.getElementById("status").innerHTML = liff.getFriendship();
-                        document.getElementById("environment").innerHTML = liff.getOS();
-                        document.getElementById("language").innerHTML = liff.getLanguage();
-                        document.getElementById("version").innerHTML = liff.getVersion();
-                        document.getElementById("isCLient").innerHTML = liff.isInClient();
-                        document.getElementById("context").innerHTML = liff.getContext();
-                        console.log("Context "+liff.getContext());
-                        console.log("Status "+liff.getFriendship());
-                    })
-                }
-            })
-            .catch( err => {
-                alert("error");
-            })
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            initialLiff('1656899952-vBpeeKPE');
-        })
-        document.getElementById("login").addEventListener('click',function(){
-            liff.login();
-        })
-        document.getElementById("logout").addEventListener('click',function(){
-            liff.logout();
-            window.location.reload();
-        })
-    </script>
+<script src="{{ asset('js/jquery.js') }}"></script> 
 </body>
 </html>

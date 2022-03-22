@@ -15,6 +15,8 @@ use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Backend\Video\VideoController;
 use App\Http\Controllers\Backend\Video\TwilioController as TwilioVideoController;
 use App\Http\Controllers\Backend\Profile\UserController;
+use App\Http\Controllers\Backend\Sms\SmsController;
+use App\Http\Controllers\Backend\Sms\VonageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,7 @@ Route::group(['prefix' => 'login'],
             function () {
                 Route::get('/', [LineController::class, 'redirect']);
                 Route::get('/callback', [LineController::class, 'callback']);
+                Route::get('/webhook', [LineController::class, 'webhook']);
             }
         );
         Route::group(['prefix' => 'google'],
@@ -97,6 +100,17 @@ Route::group(['prefix' => 'video','middleware' => 'auth'],
                 Route::get('/{id}', [PusherVideoController::class, 'video']);
             }
         ); 
+    }   
+);
+
+Route::group(['prefix' => 'sms','middleware' => 'auth'],
+    function () {
+        Route::get('/', [SmsController::class, 'index']);
+        Route::group(['prefix' => 'vonage'],
+            function () {
+                Route::get('/', [VonageController::class, 'index']);
+            }
+        );  
     }   
 );
 Auth::routes();

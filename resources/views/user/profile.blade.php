@@ -43,6 +43,11 @@
 <div class="panel panel-default">
   <div class="panel-heading" role="tab" id="headingThree">
     <h4 class="panel-title">
+      @if(\Auth::user()->provider_name == 'line')
+      <a href="https://developers.line.biz/console/channel/1656989192/liff/1656989192-xjXj50Gl">
+        <div class="title btn btn-danger btn-outline btn-lg">Config Line</div>
+      </a>
+      @endif
       @if(\Auth::user()->provider_name == 'google')
       <a href="https://console.cloud.google.com/apis/credentials/oauthclient/184147581794-88jhhff78j5etdctce938d6mfgvsc6q9.apps.googleusercontent.com?hl=vi&project=test-web-344515">
         <div class="title btn btn-danger btn-outline btn-lg">Config Google</div>
