@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Login\GoogleController;
 use App\Http\Controllers\Backend\Login\FacebookController;
 use App\Http\Controllers\Backend\Login\LineController;
 use App\Http\Controllers\Backend\Chat\ChatController;
+use App\Http\Controllers\Backend\Chat\CBoxChatController;
 use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Backend\Video\VideoController;
@@ -84,6 +85,12 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
             function () {
                 Route::get('/', [PusherChatController::class, 'index']); 
                 Route::get('/{id}', [PusherChatController::class, 'chat']);
+            }
+        ); 
+        Route::group(['prefix' => 'cbox'],
+            function () {
+                Route::get('/', [CBoxChatController::class, 'index']); 
+                Route::get('/{id}', [CBoxChatController::class, 'chat']);
             }
         ); 
     }   

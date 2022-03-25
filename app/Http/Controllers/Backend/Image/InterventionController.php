@@ -20,8 +20,7 @@ class InterventionController extends Controller
         $allImage = Image::where('user_id', Auth::id())->delete();
         $sizeFile = getimagesize($images);
         // $manager = new ImageManager(['driver' => 'imagick']);
-        $img = ImageManager::make($images);
-       dd($img);
+        $img = ImageManager::make($images); 
         $image = Image::create([
             'width' => $sizeFile[0],
             'height' => $sizeFile[1],
