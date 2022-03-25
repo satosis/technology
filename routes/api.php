@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
 use App\Http\Controllers\Api\Login\LineController;
 use App\Http\Controllers\Api\Sms\VonageController;
+use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,5 +92,11 @@ Route::group(['prefix' => 'sms'],
                 Route::post('/send', [VonageController::class, 'send']);
             }
         );  
+        Route::group(['prefix' => 'twilio'],
+        function () {
+            Route::post('/send', [TwilioSmsController::class, 'send']);
+            }
+        ); 
     }   
 );
+ 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Login\GoogleController;
 use App\Http\Controllers\Backend\Login\FacebookController;
 use App\Http\Controllers\Backend\Login\LineController;
 use App\Http\Controllers\Backend\Chat\ChatController;
+use App\Http\Controllers\Backend\Chat\CBoxChatController;
 use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Backend\Video\VideoController;
@@ -17,6 +18,10 @@ use App\Http\Controllers\Backend\Video\TwilioController as TwilioVideoController
 use App\Http\Controllers\Backend\Profile\UserController;
 use App\Http\Controllers\Backend\Sms\SmsController;
 use App\Http\Controllers\Backend\Sms\VonageController;
+use App\Http\Controllers\Backend\Sms\TwilioController as TwilioSmsController;
+use App\Http\Controllers\Backend\Image\ImageController;
+use App\Http\Controllers\Backend\Image\InterventionController;
+use App\Http\Controllers\Backend\Image\SpatieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +86,12 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
                 Route::get('/{id}', [PusherChatController::class, 'chat']);
             }
         ); 
+        Route::group(['prefix' => 'cbox'],
+            function () {
+                Route::get('/', [CBoxChatController::class, 'index']); 
+                Route::get('/{id}', [CBoxChatController::class, 'chat']);
+            }
+        ); 
     }   
 );
 
@@ -108,6 +119,29 @@ Route::group(['prefix' => 'sms','middleware' => 'auth'],
         Route::group(['prefix' => 'vonage'],
             function () {
                 Route::get('/', [VonageController::class, 'index']);
+            }
+        );  
+        Route::group(['prefix' => 'twilio'],
+            function () {
+                Route::get('/', [TwilioSmsController::class, 'index']);
+            }
+        );  
+    }   
+);
+
+Route::group(['prefix' => 'image','middleware' => 'auth'],
+    function () {
+        Route::get('/', [ImageController::class, 'index']);
+        Route::group(['prefix' => 'intervention'],
+            function () {
+                Route::get('/', [InterventionController::class, 'index']);
+                Route::post('/upload', [InterventionController::class, 'upload']);
+            }
+        );  
+        Route::group(['prefix' => 'spatie'],
+            function () {
+                Route::get('/', [SpatieController::class, 'index']);
+                Route::post('/upload', [SpatieController::class, 'upload']);
             }
         );  
     }   

@@ -80,22 +80,7 @@ export default {
             message: "",
         };
     },
-       methods: {  
-            async sendChat(e) {
-                if (this.message != '') {
-                    var data = {
-                        message: this.message,
-                        other: this.otherUser.id,
-                        type : 'text',
-                        author: this.authUser.id,
-                    }
-                    this.message = ''; 
-                    await axios.post('/api/chat/pusher/store',data).then((response) => {
-                        this.chat.push(response.data);
-                        this.$forceUpdate();
-                    })
-                }
-            },
+       methods: {   
             async update(type) {
                 const data = new FormData(); 
                 if(type == 'image')

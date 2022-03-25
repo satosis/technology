@@ -129,4 +129,17 @@ class TwilioServices
             ]);
         return 1;
     }
+
+    public function sendSms($phone, $text){
+        $twilio = new Client(Config::get('env.twilio.account_sid'), Config::get('env.twilio.account_token'));
+        $twilio_number = "0948561668";
+        $twilio->messages->create(
+            // Where to send a text message (your cell phone?)
+            $phone,
+            array(
+                'from' => $twilio_number,
+                'body' => $text
+            )
+        );
+    }
 }

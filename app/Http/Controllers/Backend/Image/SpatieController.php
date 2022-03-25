@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers\Backend\Image;
+
+use Auth;
+use App\Models\Image;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Image as ImageManager;
+
+class SpatieController extends Controller
+{
+    public function index(){
+        $images = Image::where('user_id', Auth::id())->get();
+        return view('image.spatie.index', compact('images'));
+    }
+
+    public function upload(Request $request){
+        $images = $request->images;
+        $allImage = Image::where('user_id', Auth::id())->delete();
+        $sizeFile = getimagesize($images);
+        // $manager = new ImageManager(['driver' => 'imagick']);
+        $img = ImageManager::make($images);
+       dd($img);
+        $image = Image::create([
+            'width' => $sizeFile[0],
+            'height' => $sizeFile[1],
+            'gate'  => 'spatie'
+        ]);
+    }
+}

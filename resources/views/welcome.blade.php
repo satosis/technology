@@ -92,15 +92,17 @@
                         </a>
 					</div>
 					<div class="col-md-3 mb-3">
+						<a href="/image">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
 							<div class="text text-left">
-								<h4>275</h4>
-								<span>New Projects</span>
+								<h4>1</h4>
+								<span>Resize Image</span>
 							</div>
 							<div class="icon icon-right icon-quarternary d-flex align-items-center justify-content-center">
-								<i class="ion-ios-brush"></i>
+								<i class="ion-ios-image"></i>
 							</div>
 						</button>
+						</a>
 					</div>
 					
 					<div class="col-md-3 mb-3">
