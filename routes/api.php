@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Payment\StripeController;
 use App\Http\Controllers\Api\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
+use App\Http\Controllers\Api\Login\LineController;
 use App\Http\Controllers\Api\Sms\VonageController;
 
 /*
@@ -64,6 +65,15 @@ Route::group(['prefix' => 'chat'],
     }
 );
 
+Route::group(['prefix' => 'login'],
+    function () { 
+        Route::group(['prefix' => 'line'],
+            function () {
+                Route::post('/webhook', [LineController::class, 'webhook']);
+            }
+        );
+    }
+);
 Route::group(['prefix' => 'video'],
     function () {
         Route::group(['prefix' => 'twilio'],

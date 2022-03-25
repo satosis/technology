@@ -49,7 +49,6 @@ Route::group(['prefix' => 'login'],
             function () {
                 Route::get('/', [LineController::class, 'redirect']);
                 Route::get('/callback', [LineController::class, 'callback']);
-                Route::get('/webhook', [LineController::class, 'webhook']);
             }
         );
         Route::group(['prefix' => 'google'],

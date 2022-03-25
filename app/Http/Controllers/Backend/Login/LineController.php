@@ -18,7 +18,7 @@ class LineController extends Controller
         $callback = Config::get('env.line.callback');
         $client = Config::get('env.line.liff_channel_id');
           
-        $url = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=" . $client . "&redirect_uri=" . $callback ."&bot_prompt=normal&state=12345abcde&scope=openid+profile+email&nonce=09876xyz";
+        $url = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=" . $client . "&redirect_uri=" . $callback ."&bot_prompt=aggressive&state=12345abcde&scope=openid+profile+email&nonce=09876xyz";
         return redirect()->to($url);
     }
     public function callback(Request $request){
@@ -56,7 +56,5 @@ class LineController extends Controller
           }
           return $user;
         }
-    public function webhook(Request $request){
-        Log::info($request->all());
-    }
+     
 }
