@@ -15,7 +15,7 @@ class Chat extends Model
         'created' => BroadcastChat::class
     ];
     protected $fillable = [
-        'author', 'other', 'room', 'type', 'chat', 'gate', 'code' 
+        'author', 'other', 'room', 'type', 'chat', 'gate', 'code', 'messageSid'
     ];
     protected $dates = [
         'created_at',

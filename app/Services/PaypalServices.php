@@ -62,7 +62,7 @@ class PaypalServices
             $redirect_urls = new RedirectUrls();
             $redirect_urls->setReturnUrl(URL::to('/')) /** Specify return URL **/
                 ->setCancelUrl(URL::to('/'));
-    
+     
             $payment = new Payment();
             $payment->setIntent('Sale')
                 ->setPayer($payer)
@@ -92,7 +92,6 @@ class PaypalServices
                     return '/';
                 }
             }
-           
             foreach ($payment->getLinks() as $link) {
                 if ($link->getRel() == 'approval_url') {
                     return $link->getHref();

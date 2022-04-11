@@ -63,8 +63,9 @@ class TwilioServices
     }  
     public function chat($request, $id)
     {  
+        $twilio = new Client(Config::get('env.twilio.account_sid'), Config::get('env.twilio.account_token'));
         $authUser = Auth::user();
-        $otherUser = User::find($id);   
+        $otherUser = User::find($id);  
         $room = Chat::where('gate', 'twilio')
                     ->where(function ($query) use ($otherUser) {
                         $query->where('author', Auth::user()->email)->where('other', $otherUser->email);
@@ -72,7 +73,6 @@ class TwilioServices
                         $query->where('author', $otherUser->email)->where('other', Auth::user()->email);
                     })->first();    
         if(empty($room)){
-            $twilio = new Client(Config::get('env.twilio.account_sid'), Config::get('env.twilio.account_token'));
             $channel = $twilio->conversations->v1->conversations 
             ->create([
                 "uniqueName" => $authUser->id . '-' . $otherUser->id,
@@ -107,25 +107,31 @@ class TwilioServices
     {
         Log::info($request->all());
         $chat = Chat::where('code', $request['ConversationSid'])->first();
+        $body =  $request['Body'];
+        if ( !empty($request['Media'])){
+            $body = "https://mcs.us1.twilio.com/v1/Services/" + $request['MessageSid'] + "/Media/" + $request['Media']['Sid'];
+        }
         if($request['Author'] == $chat->author)
             Chat::create([
                 'author' => $chat->author,
                 'other' => $chat->other,
-                'chat' => $request['Body'],
+                'chat' => $body,
                 'type' => $request['Body'] ? 'text' : 'media',
                 'room' => $chat->room,
                 'gate' => $chat->gate,
                 'code' => $chat->code,
+                'messageSid' =>  $request['MessageSid'],
             ]);
         else
             Chat::create([
                 'author' => $chat->other,
                 'other' => $chat->author,
-                'chat' => $request['Body'] ?? $request['Media']['Sid'],
+                'chat' => $body,
                 'type' => $request['Body'] ? 'text' : 'media',
                 'room' => $chat->room,
                 'gate' => $chat->gate,
                 'code' => $chat->code,
+                'messageSid' =>  $request['MessageSid'],
             ]);
         return 1;
     }

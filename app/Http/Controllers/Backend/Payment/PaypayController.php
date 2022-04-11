@@ -9,7 +9,7 @@ use App\Models\Payment;
 class PaypayController extends Controller
 {
     public function index(){
-        $payment = Payment::where('gate', 'paypay')->paginate(12);
+        $payment = Payment::where('gate', 'paypay')->orderBy('id', 'desc')->paginate(12);
         return view('payment.paypay.index',compact('payment'));
     }
 }

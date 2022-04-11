@@ -21,6 +21,7 @@
                 Line tutorial
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{{ asset('docs/line_setup.docx') }}" class="text-right">Tài liệu</a></li>
                 <li><a class="dropdown-item" href="https://developers.line.biz/ja/reference/line-login">Login</a></li>
                 <li><a class="dropdown-item" href="https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission">Add email </a></li>
                 <li><a class="dropdown-item" href="https://developers.line.biz/en/docs/line-login/link-a-bot/#displaying-the-option-to-add-your-line-official-account-as-a-friend">Add friend</a></li>

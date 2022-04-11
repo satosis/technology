@@ -26,9 +26,10 @@
 				</div>
 				<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
 					<div class="font-weight-bold mb-1">You</div>
-                    <img :src="message.body" v-if="message.type=='media'" class="h200"/>
+                    <img :src="message.mediaUrl" v-if="message.type=='media'" class="h200"/>
 					<p v-else>{{ message.body }}</p>
 				</div>
+                <div class="remove" v-on:click="remove(message.sid)">X</div>
 			</div>
 
 			<div class="chat-message-left pb-4" v-else>
@@ -38,9 +39,10 @@
 				</div>
 				<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
 					<div class="font-weight-bold mb-1">{{ otherUser.name}}</div>
-						<img :src="message.body" v-if="message.type=='media'" class="h200"/>
+						<img :src="message.mediaUrl" v-if="message.type=='media'" class="h200"/>
 					    <p v-else>{{ message.body }}</p>
 				</div>
+                <div class="remove" v-on:click="remove(message.sid)">X</div>
 			</div>
         </div>
 		</div>
@@ -89,6 +91,16 @@ export default {
         await this.fetchMessages();
     },
     methods: {
+        async remove(id) {
+            console.log(id);
+            var messages = (await this.activeConversation.getMessages()).items;
+            messages.map(function(value) {
+                console.log(value.sid);
+                if(value.state.sid == id) {
+                    value.remove();
+                }
+            });
+        },
         hidden(id){
             document.getElementById(id).classList.add("d-none");
         },

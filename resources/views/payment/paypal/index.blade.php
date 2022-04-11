@@ -56,6 +56,7 @@
             <th scope="col">Số tiền </th>
             <th scope="col">Trạng thái</th>
             <th scope="col">Code</th>
+            <th scope="col">Thời gian</th>
         </tr>
     </thead>
     <tbody>
@@ -76,6 +77,7 @@
             @endif
         </td>
         <td>{{ $list->code }}</td>
+        <td>{{ $list->created_at }}</td>
         </tr>
         @endforeach
     </tbody>

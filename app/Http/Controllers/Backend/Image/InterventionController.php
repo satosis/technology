@@ -21,6 +21,7 @@ class InterventionController extends Controller
         $sizeFile = getimagesize($images);
         // $manager = new ImageManager(['driver' => 'imagick']);
         $img = ImageManager::make($images); 
+        dd($img);   
         $image = Image::create([
             'width' => $sizeFile[0],
             'height' => $sizeFile[1],

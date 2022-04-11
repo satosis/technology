@@ -81,3 +81,13 @@ video{
 .border-top {
     border-top: 1px solid #dee2e6!important;
 }
+.remove{
+    cursor:pointer;
+    background: red;
+    color: white;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
