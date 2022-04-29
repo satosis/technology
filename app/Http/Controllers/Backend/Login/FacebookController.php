@@ -28,14 +28,14 @@ class FacebookController extends Controller
       $name = substr($image, strrpos($image, '/') + 1);
       Storage::put('public/avatar/' . $name . '.jpg', $contents);
       $avatar = 'public/avatar/' . basename($name)  . '.jpg' ?? null ;
-         $user = User::create([
-            'name'     => $getInfo->name,
-            'email'    => $getInfo->email,
-            'avatar'    => $avatar,
-            'provider_name' => 'facebook',
-            'provider_id' => $getInfo->id
-        ]);
-      }
-      return $user;
+      $user = User::create([
+        'name'     => $getInfo->name,
+        'email'    => $getInfo->email,
+        'avatar'    => $avatar,
+        'provider_name' => 'facebook',
+        'provider_id' => $getInfo->id
+      ]);
     }
-    }
+    return $user;
+  }
+}
