@@ -17,7 +17,6 @@ class PusherController extends Controller
         $this->pusherServices  = $pusherServices;
     } 
     public function index(){
-
         $user = User::where('id', '!=', Auth::id())->get();
         return view('chat.pusher.index', compact('user'));
     }

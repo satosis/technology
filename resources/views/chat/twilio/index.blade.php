@@ -40,7 +40,7 @@
 					@foreach($user as $list)
 					<a href="/chat/twilio/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
 						<div class="d-flex align-items-start">
-							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" alt="Jennifer Chang" width="40" height="40">
+							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" width="40" height="40">
 							<div class="flex-grow-1 ml-3">
 								{{ $list->name }}
 								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
@@ -54,7 +54,7 @@
 					<div class="py-2 px-4 border-bottom d-none d-lg-block">
 						<div class="d-flex align-items-center py-1">
 							<div class="position-relative">
-								<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+								<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 							</div>
 							<div class="flex-grow-1 pl-3">
 								<strong>Sharon Lessman</strong>
@@ -72,7 +72,7 @@
 						<div class="chat-messages p-4">
 							<div class="chat-message-right pb-4">
 								<div>
-									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:33 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -83,7 +83,7 @@
 
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:34 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
@@ -94,7 +94,7 @@
 
 							<div class="chat-message-right mb-4">
 								<div>
-									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:35 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -105,7 +105,7 @@
 
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:36 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
@@ -117,7 +117,7 @@
 
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:37 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
@@ -128,7 +128,7 @@
 
 							<div class="chat-message-right mb-4">
 								<div>
-									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:38 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -139,7 +139,7 @@
 
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:39 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
@@ -150,7 +150,7 @@
 
 							<div class="chat-message-right mb-4">
 								<div>
-									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:40 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -161,7 +161,7 @@
 
 							<div class="chat-message-right mb-4">
 								<div>
-									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:41 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -172,7 +172,7 @@
 
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:42 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
@@ -184,7 +184,7 @@
 
 							<div class="chat-message-right mb-4">
 								<div>
-									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+									<img src="{{ asset('img/avatar1.png') }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:43 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -195,7 +195,7 @@
 
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+									<img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"  width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">2:44 am</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">

@@ -12,12 +12,12 @@
 							 
 		</div>
 	</div>
-<div v-if="chat.length == 0"  class="chat-messages p-4 no-message">
+<div v-if="chats.length == 0"  class="chat-messages p-4 no-message">
            <p> Không có tin nhắn</p>
         </div> 
 	<div class="position-relative" v-else> 
 		<div class="chat-messages p-4">
-            <div v-for="(message,index) in chat" :key="index">
+            <div v-for="(message,index) in chats" :key="index">
 			<div class="chat-message-right pb-4"  v-if="message.author == authUser.id">
 				<div>
 					<img :src="authUser.avatar" class="rounded-circle mr-1" :alt="authUser.name" width="40" height="40">
@@ -47,10 +47,10 @@
 
 	<div class="flex-grow-0 py-3 px-4 border-top">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Type your message" autofocus v-on:keyup.enter="sendChat" v-model="message">
+			<input type="text" class="form-control" placeholder="Type your message" autofocus @keyup.enter="sendChat" v-model="message">
             <label for="img"><img src="/img/picture.png" class="img-2"></label>
             <input  ref="photo" type="file" id="img" class="d-none" accept="image/*" @change="update('image')" >
-			<button class="btn btn-primary"  v-on:click="sendChat">Send</button>
+			<button class="btn btn-primary"  @click="sendChat">Send</button>
 		</div>
 	</div>
 
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 export default {
     name: "ChatComponent",
     props: {
@@ -70,7 +69,7 @@ export default {
             type: Object,
             required: true
         },
-        chat: {
+        chats: {
             type: Array,
             required: true
         }
@@ -80,18 +79,33 @@ export default {
             message: "",
         };
     },
-       methods: {   
-            async update(type) {
-                const data = new FormData(); 
-                if(type == 'image')
-                    data.append('message', this.$refs.photo.files[0]);
-                data.append('other', this.otherUser.id);
-                data.append('author',  this.authUser.id);
-                data.append('type', type);
-                await axios.post('/api/chat/pusher/upload',data).then((response) => {
-                    this.chat.push(response.data)
+    methods: {   
+		async sendChat() {
+            if (this.message != '') {
+                var data = {
+                    chat: this.message,
+                    other: this.otherUser.id,
+                    type : 'text',
+                    author: this.authUser.id,
+                    created_at: new Date().toLocaleString()
+                }
+                this.message = ''; 
+                await axios.post('/api/chat/pusher/store',data).then((response) => {
+                    this.chats.push(data)
                 })
-            },
+            }
+        },
+        async update(type) {
+            const data = new FormData(); 
+            if(type == 'image')
+                data.append('message', this.$refs.photo.files[0]);
+            data.append('other', this.otherUser.id);
+            data.append('author',  this.authUser.id);
+            data.append('type', type);
+            await axios.post('/api/chat/pusher/upload',data).then((response) => {
+                this.chats.push(response.data)
+            })
+        },
         }
     }
 </script>

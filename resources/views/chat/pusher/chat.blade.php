@@ -43,7 +43,7 @@
 					@foreach($user as $list)
 					<a href="/chat/pusher/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
 						<div class="d-flex align-items-start">
-							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" alt="{{ $list->name }}" width="40" height="40">
+							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" width="40" height="40">
 							<div class="flex-grow-1 ml-3">
 								{{ $list->name }}
 								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
@@ -53,7 +53,7 @@
 					@endforeach
 					<hr class="d-block d-lg-none mt-1 mb-0">
 				</div>
-				<pusher-chat-component :auth-user="{{ $authUser }}" :other-user="{{ $otherUser }}" :chat="{{ $chat }}"> </pusher-chat-component>
+				<pusher-chat-component :auth-user="{{ $authUser }}" :other-user="{{ $otherUser }}" :chats="{{ $chat }}"> </pusher-chat-component>
 			</div>
 	</div> 
 </main>

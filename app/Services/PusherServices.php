@@ -17,17 +17,18 @@ class PusherServices
    public function chat($id){   
         $chats = Chat::where('gate', 'pusher')->whereNotNull('chat')
             ->where(function ($query) use ($id) { 
-            $query->where('author', '=', Auth::id())->where('other', '=', $id);
+                $query->where('author', '=', Auth::id())->where('other', '=', $id);
             })->orWhere(function ($query) use ($id) {
                 $query->where('author', '=', $id)->where('other', '=', Auth::id());
             })->get();
+       
         return $chats;
    }
    public function store($request) {  
     $chat = Chat::create([
         'author'=> $request->author,
         'other' => $request->other,
-        'chat'  => $request->message,
+        'chat'  => $request->chat,
         'type'  => $request->type,
         'gate'  => 'pusher'
     ]);  
@@ -41,7 +42,7 @@ class PusherServices
 		$chat = Chat::create([
 			'author'=> $request->author,
 			'other' => $request->other,
-			'chat'  => Config::get('env.app_url') . Storage::url('public/chat/' . basename($file)) ,
+			'chat'  => Storage::url('public/chat/' . basename($file)) ,
 			'type'  => $request->type,
 			'gate'  => 'pusher'
 		]);

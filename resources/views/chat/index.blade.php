@@ -20,21 +20,21 @@
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/chat/twilio">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/twilio.png') }}" class="w250" alt=""> </div>
+                    <div class="img-box"> <img src="{{ asset('img/twilio.png') }}" class="h50" alt=""> </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/chat/pusher">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/pusher.png') }}" class="w250" alt=""> </div>
+                    <div class="img-box"> <img src="{{ asset('img/pusher.png') }}" class="h50" alt=""> </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/chat/cbox">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/cbox.png') }}" class="w250" alt=""> </div>
+                    <div class="img-box"> <img src="{{ asset('img/cbox.png') }}" class="h50" alt=""> </div>
                 </div>
             </a>
         </div>

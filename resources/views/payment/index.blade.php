@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="col-12">
-            <div class="card p-3">
+            <div class="p-3">
                 <div class="card-body border p-0">
                     <p> <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample"> <span class="fw-bold">PayPal</span> <span class="fab fa-cc-paypal"> </span> </a> </p>
                     <div class="collapse p-3 pt-0" id="collapseExample">
