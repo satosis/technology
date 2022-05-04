@@ -13,15 +13,16 @@ use App\Http\Controllers\Controller;
 class LineController extends Controller
 {
     public function redirect(){
-        return \Auth::loginUsingId(2);
+        // return \Auth::loginUsingId(2);
   
-        $callback = Config::get('env.line.callback');
+        $callback = Config::get('env.app_url');
         $client = Config::get('env.line.liff_channel_id');
           
         $url = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=" . $client . "&redirect_uri=" . $callback ."&bot_prompt=aggressive&state=12345abcde&scope=openid+profile+email&nonce=09876xyz";
         return redirect()->to($url);
     }
     public function callback(Request $request){
+        Log::info(1);
         $tokenUrl = Config::get('env.line.token');
         $verifiUrl = Config::get('env.line.verify');
         $callback = Config::get('env.line.callback');

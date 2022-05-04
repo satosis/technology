@@ -4,6 +4,7 @@ namespace App\Services;
 
 use DB;
 use Log;
+use Auth;
 use Config;
 use App\Models\User;
 use App\Models\Payment;
@@ -48,7 +49,7 @@ class PaypayServices
 
         $result = $response['data'];
         Payment::create([
-            'name'  => '123',
+            'name'  => Auth::user()->name,
             'money' => $request->amount,
             'gate'  => 'paypay', 
             'status' => 0,

@@ -13,13 +13,21 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-9">
+        <div class="col-11">
             <a href="/payment">Quay lại</a>
         </div>
-        <div class="col-3 d-flex" style="justify-content: space-around;">
-            <a href="{{ asset('docs/paypay.docx') }}" class="text-right">Tài liệu</a>
-            <a href="https://www.paypay.ne.jp/opa/doc/v1.0/dynamicqrcode#section/Handle-unknown-payment-status">Docs</a>
-            <a href="https://developer.paypay.ne.jp/settings">Webhook</a>
+        <div class="col-1 d-flex" style="justify-content: space-around;">
+            <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    PAYPAY
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="{{ asset('docs/paypay.docx') }}">Tài liệu</a></li>
+                    <li><a class="dropdown-item" href="https://www.paypay.ne.jp/opa/doc/v1.0/dynamicqrcode#section/Handle-unknown-payment-status">Docs</a></li>
+                    <li><a class="dropdown-item" href="https://developer.paypay.ne.jp/settings">Config</a></li>
+                    <li><a class="dropdown-item" href="https://integration.paypay.ne.jp/hc/ja/articles/4414061901199?input_string=paypay+app">Sanbox app</a></li>
+                </ul>
+            </div>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">

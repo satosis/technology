@@ -12,11 +12,19 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-11"> 
+        <div class="col-10"> 
             <a href="/sms">Quay lại</a>
         </div>
-        <div class="col-1 d-flex" style="justify-content: space-around;">
-            <!-- <a href="https://www.twilio.com/blog/create-video-conference-app-laravel-php-vue-js">Tutorial</a> -->
+        <div class="col-2 d-flex" style="justify-content: space-around;">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vonage
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="https://stackoverflow.com/questions/42759101/can-i-send-sms-to-the-user-on-my-database-using-laravel-and-nexmo">Non White-listed</a></li>
+                    <li><a class="dropdown-item" href="https://dashboard.nexmo.com/pricing">Price</a></li>
+                </ul>
+            </div>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">

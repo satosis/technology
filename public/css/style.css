@@ -25,16 +25,6 @@ body {
     background: #eee
 }
 
-.btn.btn-primary {
-    background-color: #ddd;
-    color: black;
-    box-shadow: none;
-    border: none;
-    font-size: 20px;
-    width: 100%;
-    height: 100%
-}
-
 .btn.btn-primary:focus {
     box-shadow: none
 }
@@ -151,4 +141,12 @@ body {
 .form-control:focus {
     border: 1.5px solid #1A73E8;
     box-shadow: none
+}
+.no-deco{
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+.no-deco .card{
+    height: 100px;
 }

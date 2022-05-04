@@ -39,7 +39,8 @@ Route::get('/', function () {
 });
 Route::get('/profile', [UserController::class, 'index'])->middleware('auth');
  
-Route::group(['prefix' => 'payment'],
+Route::get('/test', [FacebookController::class, 'test']); 
+Route::group(['prefix' => 'payment','middleware' => 'auth'],
     function () {
         Route::get('/', [PaymentController::class, 'index']);
         Route::get('/paypay', [PaypayController::class, 'index']);

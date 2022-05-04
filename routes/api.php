@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::group(['prefix' => 'payment'],
     function () {
         Route::group(['prefix' => 'paypay'],

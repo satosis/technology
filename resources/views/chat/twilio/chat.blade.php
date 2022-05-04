@@ -24,6 +24,7 @@
                 <li><a class="dropdown-item" href="{{ asset('docs/twilio.docx') }}" class="text-right">Tài liệu</a></li>
                 <li><a class="dropdown-item" href="https://www.twilio.com/docs/conversations/javascript/exploring-conversations-javascript-quickstart#sending-messages-to-a-conversation">Docs conversation with vuejs</a></li>
                 <li><a class="dropdown-item" href="https://www.twilio.com/docs/conversations/media-support-conversations">Upload media </a></li>
+                <li><a class="dropdown-item" href="https://www.twilio.com/conversations/pricing">Price</a></li>
             </ul>
             </div>
         </div>

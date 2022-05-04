@@ -18,9 +18,9 @@
     </div>
     <div class="row">
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/video/twilio">
+            <a href="/video/twilio" class="no-deco">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/twilio.png') }}" class="w250" alt=""> </div>
+                   <img src="{{ asset('img/twilio.png') }}" class="w250" alt="">
                 </div>
             </a>
         </div>

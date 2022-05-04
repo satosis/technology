@@ -13,7 +13,7 @@ class LineController extends Controller
     {
         $this->lineServices  = $lineServices;
     } 
-
+ 
     public function webhook(Request $request)
     {
         $result = $this->lineServices->webhook($request);

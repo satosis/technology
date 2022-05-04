@@ -15,13 +15,21 @@
 <body>
 <div class="container" id="app">
     <div class="row"> 
-        <div class="col-9"> 
+        <div class="col-11"> 
             <a href="/chat">Quay lại</a>
         </div>
-        <div class="col-3 d-flex" style="justify-content: space-around;">
-			<a href="https://www.youtube.com/watch?v=OxuojwY9wXc&t=2059s">Youtube</a>
-            <a href="https://pusher.com/tutorials/chat-laravel">Tutorial Chat</a>
-            <a href="https://pusher.com/tutorials/photo-feed-laravel">Tutorial File</a>
+        <div class="col-1 d-flex" style="justify-content: space-around;">
+			<div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    PUSHER
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=OxuojwY9wXc&t=2059s">Tutorial</a></li>
+                    <li><a class="dropdown-item" href="https://pusher.com/tutorials/chat-laravel">Tutorial Chat</a></li>
+                    <li><a class="dropdown-item" href="https://pusher.com/tutorials/photo-feed-laravel">Tutorial File</a></li>
+                    <li><a class="dropdown-item" href="https://pusher.com/channels/pricing">Price</a></li>
+                </ul>
+            </div>
         </div> 
         <div class="col-12 mt-4">
             <div class="card p-3">

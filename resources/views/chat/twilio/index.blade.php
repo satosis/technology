@@ -16,9 +16,17 @@
             <a href="/chat">Quay lại</a>
         </div>
         <div class="col-3 d-flex" style="justify-content: space-around;">
-			<a href="{{ asset('docs/twilio.docx') }}" class="text-right">Tài liệu</a>
-            <a href="https://www.twilio.com/blog/add-chat-laravel-php-app-twilio-chat">Tutorial Chat</a>
-            <a href="https://www.twilio.com/docs/conversations/media-support-conversations">Tutorial File</a>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					Twilio Conversation tutorial
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="{{ asset('docs/twilio.docx') }}" class="text-right">Tài liệu</a></li>
+					<li><a class="dropdown-item" href="https://www.twilio.com/docs/conversations/javascript/exploring-conversations-javascript-quickstart#sending-messages-to-a-conversation">Docs conversation with vuejs</a></li>
+					<li><a class="dropdown-item" href="https://www.twilio.com/docs/conversations/media-support-conversations">Upload media </a></li>
+					<li><a class="dropdown-item" href="https://www.twilio.com/conversations/pricing">Price</a></li>
+				</ul>
+            </div>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">

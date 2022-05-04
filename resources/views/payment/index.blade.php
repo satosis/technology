@@ -18,23 +18,23 @@
     </div>
     <div class="row">
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/payment/paypay">
+            <a href="/payment/paypay" class="no-deco">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/paypay.svg') }}" class="h50" alt=""> </div>
+                    <img src="{{ asset('img/paypay.svg') }}" class="h50">
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/payment/paypal">
+            <a href="/payment/paypal" class="no-deco">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/paypal.png') }}" class="h50" alt=""> </div>
+                    <img src="{{ asset('img/paypal.png') }}" class="h50">
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
-            <a href="/payment/stripe">
+            <a href="/payment/stripe" class="no-deco">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/stripe.png') }}" class="h50" alt=""> </div>
+                    <img src="{{ asset('img/stripe.png') }}" class="h50">
                 </div>
             </a>
         </div>

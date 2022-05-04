@@ -13,12 +13,19 @@
 <body>
 <div class="container">
     <div class="row"> 
-        <div class="col-10">
+        <div class="col-11">
             <a href="/payment">Quay lại</a>
         </div>
-        <div class="col-2 d-flex" style="justify-content: space-around;">
-        <a href="https://www.youtube.com/watch?v=fUzTsIeonW4">Tutorial</a>
-        <a href="https://developer.paypal.com/developer/applications/edit/SB:QWI3bGkyMHgxVXhUV296YXNaV1RJTE0wMzFPaWxWbUhKcDBHUVpYOUtvZ3c0c1Bqdm8zVkM2aE1YTEI4VmZfVjhBZW1FUV8zMUo5NjdrVmM=?appname=Checkout">Webhook</a>
+        <div class="col-1 d-flex" style="justify-content: space-around;">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    PAYPAL
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=fUzTsIeonW4">Tutorial</a></li>
+                    <li><a class="dropdown-item" href="https://developer.paypal.com/developer/applications/edit/SB:QWI3bGkyMHgxVXhUV296YXNaV1RJTE0wMzFPaWxWbUhKcDBHUVpYOUtvZ3c0c1Bqdm8zVkM2aE1YTEI4VmZfVjhBZW1FUV8zMUo5NjdrVmM=?appname=Checkout">Webhook</a></li>
+                </ul>
+            </div>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
@@ -38,7 +45,7 @@
                             <div class="col-6 text-center">
                                 <p class="h4 mb-0">Test User</p>
                                 <p class="mb-0"><span class="fw-bold">Email:</span><span class="c-green">: sb-jvln11575580@personal.example.com</span></p>
-                                <p class="mb-0"><span class="fw-bold">Password:</span><span class="c-green">: 6PfnUkpvGl</span></p>
+                                <p class="mb-0"><span class="fw-bold">Password:</span><span class="c-green">: testUser</span></p>
                             </div>
                         </div>
                     <div class="col-12" id="paypal" >
@@ -62,7 +69,7 @@
     <tbody>
         @if(!count($payment))
             <tr>
-                <th colspan="4">Không có dữ liệu</th>
+                <th colspan="5">Không có dữ liệu</th>
             </tr>
         @endif
         @foreach($payment as $key => $list)
