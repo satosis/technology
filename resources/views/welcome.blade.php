@@ -108,8 +108,8 @@
 					<div class="col-md-3 mb-3">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
 							<div class="text text-left">
-								<h4>68 %</h4>
-								<span>Conversion Rate</span>
+								<h4>1</h4>
+								<span>BOT</span>
 							</div>
 							<div class="icon icon-right icon-secondary d-flex align-items-center justify-content-center">
 								<i class="ion-ios-pulse"></i>
