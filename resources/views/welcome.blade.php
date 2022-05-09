@@ -109,7 +109,7 @@
 						<a href="/date">
 						<button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
 							<div class="text text-left">
-								<h4>68 %</h4>
+								<h4>1</h4>
 								<span>DatePicker</span>
 							</div>
 							<div class="icon icon-right icon-secondary d-flex align-items-center justify-content-center">
