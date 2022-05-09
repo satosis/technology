@@ -32,13 +32,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     data: {
-        chat: [],
+        chats: [],
     }, 
     created() {
         Echo.private('chat')
         .listen('BroadcastChat', (e) => {
             console.log(e.chat);
-            this.chat.push(e.chat);
+            this.chats.push(e.chat);
             this.$forceUpdate();
         }); 
     }

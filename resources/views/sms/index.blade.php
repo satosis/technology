@@ -20,14 +20,14 @@
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/sms/vonage"  class="no-deco">
                 <div class="card p-3">
-                    <img src="{{ asset('img/vonage.jpg') }}" class="w250" alt="">
+                    <div class="img-box"> <img src="{{ asset('img/vonage.jpg') }}" class="h50" alt=""> </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/sms/twilio"  class="no-deco">
                 <div class="card p-3">
-                    <img src="{{ asset('img/twilio.png') }}" class="w250" alt="">
+                    <div class="img-box"> <img src="{{ asset('img/twilio.png') }}" class="h50" alt=""> </div>
                 </div>
             </a>
         </div>

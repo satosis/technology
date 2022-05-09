@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Log;
 use URL;
-use Auth;
 use Config;
 use PayPal\Api\Item;
 use PayPal\Api\Payer;
@@ -72,7 +71,7 @@ class PaypalServices
             try {
                 $payment->create($this->apiContext);
                 Pay::create([
-                    'name'  => Auth::user()->name,
+                    'name'  => '123',
                     'money' => $money,
                     'gate'  => 'paypal', 
                     'status' => 0,

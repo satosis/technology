@@ -27,7 +27,7 @@
     <main class="content">
     <div class="container p-0">
 			<div class="row g-0">
-				<div class="col-12 col-lg-5 col-xl-3 border-right"> 
+			<div class="col-12 col-lg-5 col-xl-3 border-right" style="height: 620px;overflow: auto;"> 
 					<div class="px-4 d-none d-md-block">
 						<div class="d-flex align-items-center">
 							<div class="flex-grow-1">
@@ -38,7 +38,7 @@
 					@foreach($user as $list)
 					<a href="/video/twilio/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
 						<div class="d-flex align-items-start">
-							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" alt="Jennifer Chang" width="40" height="40">
+							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" width="40" height="40">
 							<div class="flex-grow-1 ml-3">
 								{{ $list->name }}
 								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>

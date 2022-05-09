@@ -20,7 +20,7 @@
         <a href="https://viblo.asia/p/dung-thu-stripe-phan-1-maGK7j1D5j2">Docs</a>
         </div>
         <div class="col-12 mt-4">
-            <div class="card p-3">
+            <div class="p-3">
                 <img src="{{ asset('img/stripe.png') }}" class="h50">
             </div>
             <div class="card-body border p-0">

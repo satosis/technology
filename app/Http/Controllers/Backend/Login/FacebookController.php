@@ -35,19 +35,19 @@ class FacebookController extends Controller
     $user = User::where('email', $getInfo->email)->first();
 
     if (!$user) {
-        $image = $getInfo->avatar;
-        $contents = file_get_contents($image);
-        $name = renameUploadedFile(substr(substr($image, strrpos($image, '/') + 1), 0, 7));
-        Storage::put('public/avatar/' . $name . '.jpg', $contents);
-        $avatar = Storage::url('public/avatar/' . basename($name) ) . '.jpg' ?? null ;
-        $user = User::create([
-            'name'     => $getInfo->name,
-            'email'    => $getInfo->email,
-            'avatar'    => $avatar,
-            'provider_name' => 'facebook',
-            'provider_id' => $getInfo->id
-        ]);
-      }
-      return $user;
+      $image = $getInfo->avatar;
+      $contents = file_get_contents($image);
+      $name = substr($image, strrpos($image, '/') + 1);
+      Storage::put('public/avatar/' . $name . '.jpg', $contents);
+      $avatar = 'public/avatar/' . basename($name)  . '.jpg' ?? null ;
+      $user = User::create([
+        'name'     => $getInfo->name,
+        'email'    => $getInfo->email,
+        'avatar'    => $avatar,
+        'provider_name' => 'facebook',
+        'provider_id' => $getInfo->id
+      ]);
     }
-    }
+    return $user;
+  }
+}

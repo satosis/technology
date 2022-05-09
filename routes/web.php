@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\Sms\TwilioController as TwilioSmsController;
 use App\Http\Controllers\Backend\Image\ImageController;
 use App\Http\Controllers\Backend\Image\InterventionController;
 use App\Http\Controllers\Backend\Image\SpatieController;
+use App\Http\Controllers\Backend\DateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,6 +148,11 @@ Route::group(['prefix' => 'image','middleware' => 'auth'],
         );  
     }   
 );
+Route::group(['prefix' => 'date'],
+function () {
+    Route::get('/', [DateController::class, 'index']);
+}
+); 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

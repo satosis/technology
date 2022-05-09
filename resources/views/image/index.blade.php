@@ -20,14 +20,14 @@
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/image/intervention">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/intervention.png') }}" class="w250" alt=""> </div>
+                    <div class="img-box"> <img src="{{ asset('img/intervention.png') }}" class="h5-" alt=""> </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 mb-lg-0 mb-3">
             <a href="/image/spatie">
                 <div class="card p-3">
-                    <div class="img-box"> <img src="{{ asset('img/spatie.png') }}" class="w250" alt=""> </div>
+                    <div class="img-box"> <img src="{{ asset('img/spatie.png') }}" class="h5-" alt=""> </div>
                 </div>
             </a>
         </div>

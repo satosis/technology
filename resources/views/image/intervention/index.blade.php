@@ -38,32 +38,32 @@
     <div class="crews">
         <div class="human">
             <p class="tw1">PRODUCT OWNER</p>
-            <img src="{{ asset('img/photo1.png') }}" alt="Bill Mahoney">
+            <img src="{{ asset('img/photo1.png') }}" >
             <p class="t1">Bill Mahoney</p>
         </div>
         <div class="human">
             <p class="tw1 tw12">ART DIRECTOR<span class="vis">A</span></p>
-            <img class="humanx" src="{{ asset('img/photo2.png') }}" alt="Saba Cabrera">
+            <img class="humanx" src="{{ asset('img/photo2.png') }}" >
             <p class="t1 humanx">Saba Cabrera</p>
         </div>
         <div class="human">
             <p class="tw1">TECH LEAD<span class="vis">AAAAA</span></p>
-            <img src="{{ asset('img/photo3.png') }}" alt="Shae Le">
+            <img src="{{ asset('img/photo3.png') }}" >
             <p class="t1">Shae Le</p>
         </div>
         <div class="human">
             <p class="tw1">UX DESİGNER<span class="vis">AAA</span></p>
-            <img src="{{ asset('img/photo4.png') }}" alt="Skylah Lu">
+            <img src="{{ asset('img/photo4.png') }}" >
             <p class="t1">Skylah Lu</p>
         </div>
         <div class="human hu">
             <p class="tw1 tw12">DEVELOPER<span class="vis">AAAA</span></p>
-            <img class="humanx" src="{{ asset('img/photo5.png') }}" alt="Griff Richards">
+            <img class="humanx" src="{{ asset('img/photo5.png') }}" >
             <p class="t1 humanx">Griff Richards</p>
         </div>
         <div class="human humany">
             <p class="tw1">DEVELOPER<span class="vis">AAAA</span></p>
-            <img src="{{ asset('img/photo6.png') }}" alt="Stan Jhon">
+            <img src="{{ asset('img/photo6.png') }}">
             <p class="t1">Stan Jhon</p>
            
         </div>

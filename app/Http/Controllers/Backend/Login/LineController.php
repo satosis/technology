@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 class LineController extends Controller
 {
     public function redirect(){
-        // return \Auth::loginUsingId(2);
+        return \Auth::loginUsingId(2);
   
         $callback = Config::get('env.app_url');
         $client = Config::get('env.line.liff_channel_id');
@@ -22,7 +22,6 @@ class LineController extends Controller
         return redirect()->to($url);
     }
     public function callback(Request $request){
-        Log::info(1);
         $tokenUrl = Config::get('env.line.token');
         $verifiUrl = Config::get('env.line.verify');
         $callback = Config::get('env.line.callback');
