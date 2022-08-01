@@ -23,7 +23,7 @@ use App\Http\Controllers\Backend\Image\ImageController;
 use App\Http\Controllers\Backend\Image\InterventionController;
 use App\Http\Controllers\Backend\Image\SpatieController;
 use App\Http\Controllers\Backend\DateController;
-use App\Http\Controllers\Backend\Comment\CommentController;
+use App\Http\Controllers\Backend\Comment\PusherController as PusherCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,10 +99,14 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
 );
 
 Route::group(['prefix' => 'comment','middleware' => 'auth'],
-function () {
-    Route::get('/', [CommentController::class, 'list']);
-    Route::post('/send', [CommentController::class, 'send']);
-}   
+    function () {
+        Route::group(['prefix' => 'pusher'],
+        function () {
+            Route::get('/', [PusherCommentController::class, 'list']);
+            Route::post('/send', [PusherCommentController::class, 'send']);
+            }
+        ); 
+    }   
 );
 
 Route::group(['prefix' => 'video','middleware' => 'auth'],

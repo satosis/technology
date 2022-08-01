@@ -7,12 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 
-class CommentController extends Controller
+class PusherController extends Controller
 { 
     public function list()
     {   
         $comment = Comment::all();
-        return view('comment.index', compact('comment'));
+        return view('comment.pusher', compact('comment'));
     } 
 
     public function send(Request $request)
