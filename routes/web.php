@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\Image\ImageController;
 use App\Http\Controllers\Backend\Image\InterventionController;
 use App\Http\Controllers\Backend\Image\SpatieController;
 use App\Http\Controllers\Backend\DateController;
+use App\Http\Controllers\Backend\Comment\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,8 +94,15 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
                 Route::get('/', [CBoxChatController::class, 'index']); 
                 Route::get('/{id}', [CBoxChatController::class, 'chat']);
             }
-        ); 
+        );
     }   
+);
+
+Route::group(['prefix' => 'comment','middleware' => 'auth'],
+function () {
+    Route::get('/', [CommentController::class, 'list']);
+    Route::post('/send', [CommentController::class, 'send']);
+}   
 );
 
 Route::group(['prefix' => 'video','middleware' => 'auth'],
@@ -148,6 +156,7 @@ Route::group(['prefix' => 'image','middleware' => 'auth'],
         );  
     }   
 );
+
 Route::group(['prefix' => 'date'],
 function () {
     Route::get('/', [DateController::class, 'index']);
@@ -156,3 +165,4 @@ function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

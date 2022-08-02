@@ -21,3 +21,8 @@ Broadcast::channel('chat', function ($user) {
 Broadcast::channel('Online', function ($user) {
     return $user;
 });
+
+//Comment
+Broadcast::channel('Comment.{comment}', function ($user, Comment $comment) {
+    return $comment->user_id = $user->id;
+});
