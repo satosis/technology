@@ -23,6 +23,6 @@ Broadcast::channel('Online', function ($user) {
 });
 
 //Comment
-Broadcast::channel('Comment.{comment}', function ($user, Comment $comment) {
-    return $comment->user_id = $user->id;
+Broadcast::channel('Comment.{user}', function ($user) {
+    return $user->id;
 });

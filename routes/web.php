@@ -103,7 +103,6 @@ Route::group(['prefix' => 'comment','middleware' => 'auth'],
         Route::group(['prefix' => 'pusher'],
         function () {
             Route::get('/', [PusherCommentController::class, 'list']);
-            Route::post('/send', [PusherCommentController::class, 'send']);
             }
         ); 
     }   

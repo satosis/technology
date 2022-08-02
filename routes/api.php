@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
 use App\Http\Controllers\Api\Login\LineController;
 use App\Http\Controllers\Api\Sms\VonageController;
 use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
+use App\Http\Controllers\Api\Comment\PusherController as PusherCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,4 +102,12 @@ Route::group(['prefix' => 'sms'],
     }   
 );
  
- 
+Route::group(['prefix' => 'comment'],
+function () {
+    Route::group(['prefix' => 'pusher'],
+    function () {
+        Route::post('/store', [PusherCommentController::class, 'store']);
+        }
+    ); 
+}   
+);

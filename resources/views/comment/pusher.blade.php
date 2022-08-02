@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
 </head>
 <style>
@@ -144,7 +145,7 @@
         padding: 20px;
     }
 </style>
-<body id="app">
+<body>
 <nav class="navbar navbar-expand-sm navbar-dark">
     <img src="https://i.imgur.com/CFpa3nK.jpg" width="20" height="20" class="d-inline-block align-top rounded-circle"
          alt="">
@@ -165,9 +166,9 @@
     </div>
 </nav>
 <!-- Main Body -->
-<section>
+<section id="app">
     <div class="container">
-        <pusher-chat-component :auth-user="{{ \Auth::user() }}" :comments="{{ $comment }}"></pusher-chat-component>
+        <pusher-comment-component :auth-user="{{ \Auth::user() }}" :comments="{{ $comment }}"></pusher-comment-component>
     </div>
 </section>
 </body>

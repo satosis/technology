@@ -11,18 +11,7 @@ class PusherController extends Controller
 { 
     public function list()
     {   
-        $comment = Comment::all();
+        $comment = Comment::with('users')->get();
         return view('comment.pusher', compact('comment'));
-    } 
-
-    public function send(Request $request)
-    {   
-        $data = [
-            'user_id' => Auth::id(),
-            'content' => $request->comment,
-        ];
-        $result = Comment::create($data);
-        
-        return response()->json($result);
     } 
 }

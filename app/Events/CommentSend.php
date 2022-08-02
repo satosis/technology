@@ -40,6 +40,6 @@ class CommentSend implements ShouldBroadcast
     }
     public function broadcastOn()
     {
-        return new Channel('Comment.' . $this->comment->id);
+        return new Channel('Comment.' . $this->comment->users->id);
     }
 }
