@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
-Broadcast::channel('chat', function ($user) {
-    return $user->id;
-  });
 Broadcast::channel('Online', function ($user) {
     return $user;
 });
@@ -25,4 +22,8 @@ Broadcast::channel('Online', function ($user) {
 //Comment
 Broadcast::channel('Comment.{user}', function ($user) {
     return $user->id;
+});
+
+Broadcast::channel('Chat.{user_id}.{friend_id}', function ($user, $user_id, $friend_id) {
+    return $user->id == $friend_id;
 });

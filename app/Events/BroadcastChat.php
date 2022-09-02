@@ -26,6 +26,6 @@ class BroadcastChat implements ShouldBroadcast
      */
     public function broadcastOn() 
     {
-        return new PrivateChannel('chat');
+        return new PrivateChannel('Chat.' . $this->chat->author . '.' . $this->chat->other);
     }
 }
