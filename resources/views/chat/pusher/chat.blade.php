@@ -24,6 +24,7 @@
                     PUSHER
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="{{ asset('docs/pusher_setup.docx') }}">Tài liệu</a></li>
                     <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=OxuojwY9wXc&t=2059s">Tutorial</a></li>
                     <li><a class="dropdown-item" href="https://pusher.com/tutorials/chat-laravel">Tutorial Chat</a></li>
                     <li><a class="dropdown-item" href="https://pusher.com/tutorials/photo-feed-laravel">Tutorial File</a></li>

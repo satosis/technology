@@ -22,7 +22,7 @@
                     PAYPAY
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{{ asset('docs/paypay.docx') }}">Tài liệu</a></li>
+                    <li><a class="dropdown-item" href="{{ asset('docs/paypay_setup.docx') }}">Tài liệu</a></li>
                     <li><a class="dropdown-item" href="https://www.paypay.ne.jp/opa/doc/v1.0/dynamicqrcode#section/Handle-unknown-payment-status">Docs</a></li>
                     <li><a class="dropdown-item" href="https://developer.paypay.ne.jp/settings">Config</a></li>
                     <li><a class="dropdown-item" href="https://integration.paypay.ne.jp/hc/ja/articles/4414061901199?input_string=paypay+app">Sanbox app</a></li>
