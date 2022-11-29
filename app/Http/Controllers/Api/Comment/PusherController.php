@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api\Comment;
 
-use Auth;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 
 class PusherController extends Controller
 { 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\Chat;
 
-use Illuminate\Http\Request;
-use App\Services\TwilioServices;
 use App\Http\Controllers\Controller;
+use App\Services\TwilioServices;
+use Illuminate\Http\Request;
 
 class TwilioController extends Controller
 {
@@ -16,15 +16,13 @@ class TwilioController extends Controller
 
     public function list(Request $request, $room)
     {
-        $result = $this->twilioServices->list($room);
-        return $result;
+        return $this->twilioServices->list($room);
     }
     
 
     public function token(Request $request)
     {
-        $result = $this->twilioServices->tokenChat($request);
-        return $result;
+        return $this->twilioServices->tokenChat($request);
     }
     
     public function webhook(Request $request)

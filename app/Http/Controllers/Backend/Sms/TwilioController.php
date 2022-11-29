@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 
 class TwilioController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('sms.twilio.index');
     }
 }

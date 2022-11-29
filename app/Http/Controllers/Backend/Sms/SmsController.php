@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Backend\Sms;
 
-use Auth;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class SmsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('sms.index');
     }
 }

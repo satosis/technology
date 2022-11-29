@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Api\Payment;
 
-use Illuminate\Http\Request;
-use App\Services\PaypalServices;
 use App\Http\Controllers\Controller;
+use App\Services\PaypalServices;
+use Illuminate\Http\Request;
 
 class PaypalController extends Controller
 {
     protected $paypalServices;
+
     public function __construct(PaypalServices $paypalServices)
     {
-        $this->paypalServices  = $paypalServices;
-    } 
+        $this->paypalServices = $paypalServices;
+    }
+
     public function paypal(Request $request)
     {
-        $result = $this->paypalServices->paypalTransaction($request);
-        return $result;
+        return $this->paypalServices->paypalTransaction($request);
     }
 
     public function webhook(Request $request)
     {
-        $result = $this->paypalServices->webhook($request);
-        return $result;
+        return $this->paypalServices->webhook($request);
     }
 }

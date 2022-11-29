@@ -2,12 +2,11 @@
 
 namespace App\Services;
 
-use DB;
-use Log;
-use Config;
-use App\Models\User;
 use App\Models\Payment;
+use Config;
+use DB;
 use Illuminate\Support\Str;
+use Log;
 use PayPay\OpenPaymentAPI\Client;
 use PayPay\OpenPaymentAPI\Models\CreateQrCodePayload;
 
@@ -23,7 +22,8 @@ class PaypayServices
             ],
             false
         );
-    } 
+    }
+
     public function paypayTransaction($request)
     {
         $CQCPayload = new CreateQrCodePayload();
@@ -48,14 +48,15 @@ class PaypayServices
 
         $result = $response['data'];
         Payment::create([
-            'name'  => '123',
+            'name' => '123',
             'money' => $request->amount,
-            'gate'  => 'paypay', 
+            'gate' => 'paypay',
             'status' => 0,
-            'code'  => $result['merchantPaymentId']
+            'code' => $result['merchantPaymentId']
         ]);
         return $result;
-    } 
+    }
+
     public function cancelPaymentTransaction($request)
     {
         return $this->client->payment->cancelPayment("Consultant-" . $request->consultant . "-Advisor-" . $request->advisor);
@@ -65,7 +66,7 @@ class PaypayServices
     {
         $payload = json_decode($request->getContent(), true);
         Log::info($payload);
-        if ($payload['notification_type'] == 'Transaction' && $payload['state'] == 'COMPLETED' ) {
+        if ($payload['notification_type'] == 'Transaction' && $payload['state'] == 'COMPLETED') {
             $transaction = Payment::where('code', $payload['merchant_order_id'])->first();
             $transaction->status = 1;
             $transaction->update();

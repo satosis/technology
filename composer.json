@@ -16,7 +16,7 @@
         "laravel/ui": "^3.4",
         "linecorp/line-bot-sdk": "^3.6",
         "nexmo/laravel": "^3.0",
-        "paypal/rest-api-sdk-php": "^1.14",
+        "paypal/rest-api-sdk-php": "*",
         "paypayopa/php-sdk": "^2.0",
         "pusher/pusher-php-server": "^7.0",
         "spatie/laravel-medialibrary": "^8.0.0",

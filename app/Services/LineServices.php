@@ -2,24 +2,22 @@
 
 namespace App\Services;
 
+use App\Exceptions\LineException;
+use App\Services\LineMessageEvents\UserFollowHandler;
+use App\Services\LineMessageEvents\UserUnFollowHandler;
 use Config;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Services\LineMessageService;
-use App\Exceptions\LineException;
 use Illuminate\Support\Facades\Http;
-use App\Services\LineMessageEvents\UserFollowHandler;
-use App\Services\LineMessageEvents\UserUnFollowHandler;
-use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use LINE\LINEBot;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
+use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use Log;
+
 class LineServices
 {
-    /**
-     * @var LineMessageService
-     */
-    private $lineMessageService;
-
     /**
      * @var array
      */
@@ -28,6 +26,10 @@ class LineServices
         'profile' => 'https://api.line.me/v2/profile',
         'friendship' => 'https://api.line.me/friendship/v1/status',
     ];
+    /**
+     * @var LineMessageService
+     */
+    private $lineMessageService;
 
     /**
      * @param LineMessageService $lineMessageService
@@ -48,13 +50,13 @@ class LineServices
         $this->lineMessageService->handle($request);
     }
 
-  /**
-   * Make sample LINE account
-   *
-   * @param $idToken
-   * @return array
-   * @throws LineException
-   */
+    /**
+     * Make sample LINE account
+     *
+     * @param $idToken
+     * @return array
+     * @throws LineException
+     */
     public function getLineInfoByIdToken($idToken)
     {
         $response = Http::asForm()->post(self::LINE_ENDPOINTS['verify'], [
@@ -80,7 +82,8 @@ class LineServices
         ];
     }
 
-    public function checkFriendByAccessToken($accessToken) {
+    public function checkFriendByAccessToken($accessToken)
+    {
         $friendship = Http::withToken($accessToken)->get(self::LINE_ENDPOINTS['friendship']);
         if ($friendship['friendFlag'] === false) {
             return [
@@ -92,6 +95,7 @@ class LineServices
             'status' => Response::HTTP_OK
         ];
     }
+
     /**
      * @param $accessToken
      * @return array
@@ -127,18 +131,17 @@ class LineServices
 
     public function sendMessage($chat, $user)
     {
-        $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(config('line.channel_token'));
-        $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => config('line.channel_secret')]);
-        $file = Config::get('env.app_url') .$chat->body;
-        if($chat->type == 'text') {
+        $httpClient = new CurlHTTPClient(config('line.channel_token'));
+        $bot = new LINEBot($httpClient, ['channelSecret' => config('line.channel_secret')]);
+        $file = Config::get('env.app_url') . $chat->body;
+        if ($chat->type == 'text') {
             $textMessageBuilder = new TextMessageBuilder($chat->body);
-        }
-        else if($chat->type == 'image') {
+        } else if ($chat->type == 'image') {
             $textMessageBuilder = new ImageMessageBuilder($file, $file);
         } else {
             $textMessageBuilder = new AudioMessageBuilder($file, 1000);
         }
         $response = $bot->pushMessage($user->line_id, $textMessageBuilder);
-        \Log::channel('line')->info( $response->getHTTPStatus() . ' ' . $response->getRawBody());
+        Log::channel('line')->info($response->getHTTPStatus() . ' ' . $response->getRawBody());
     }
 }

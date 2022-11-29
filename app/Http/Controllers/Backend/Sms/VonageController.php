@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 
 class VonageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('sms.vonage.index');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use LINE\LINEBot;
-use Illuminate\Http\Request;
 use App\Exceptions\LineException;
 use App\Services\LineMessageEvents\BaseHandler;
+use Illuminate\Http\Request;
+use LINE\LINEBot;
 
 class LineMessageService
 {
@@ -29,14 +29,6 @@ class LineMessageService
     }
 
     /**
-     * @return LINEBot
-     */
-    public function getBot()
-    {
-        return $this->lineBot;
-    }
-
-    /**
      * @param Request $request
      * @throws LineException
      */
@@ -49,18 +41,9 @@ class LineMessageService
 
         try {
             $this->handleEvents($this->getBot()->parseEventRequest($request->getContent(), $signature));
-        } catch (LINEBot\Exception\InvalidSignatureException | LINEBot\Exception\InvalidEventRequestException $e) {
+        } catch (LINEBot\Exception\InvalidSignatureException|LINEBot\Exception\InvalidEventRequestException $e) {
             throw new LineException($e->getMessage(), 400);
         }
-    }
-
-    /**
-     * @param string $eventName
-     * @param string $event
-     */
-    public function addEventHandler(string $eventName, string $event)
-    {
-        $this->eventHandlers[$eventName] = $event;
     }
 
     /**
@@ -92,5 +75,22 @@ class LineMessageService
             );
             $eventHandler->handle($this->getBot(), $event);
         }
+    }
+
+    /**
+     * @return LINEBot
+     */
+    public function getBot()
+    {
+        return $this->lineBot;
+    }
+
+    /**
+     * @param string $eventName
+     * @param string $event
+     */
+    public function addEventHandler(string $eventName, string $event)
+    {
+        $this->eventHandlers[$eventName] = $event;
     }
 }
