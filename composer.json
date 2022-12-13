@@ -20,7 +20,7 @@
         "paypayopa/php-sdk": "^2.0",
         "pusher/pusher-php-server": "^7.0",
         "spatie/laravel-medialibrary": "^8.0.0",
-        "stripe/stripe-php": "^7.116",
+        "stripe/stripe-php": "^10.1",
         "twilio/sdk": "^6.32",
         "vonage/client": "^3.0"
     },

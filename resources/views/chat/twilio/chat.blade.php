@@ -11,8 +11,8 @@
 </head>
 <body>
 <div class="container" id="app">
-    <div class="row"> 
-        <div class="col-9"> 
+    <div class="row">
+        <div class="col-9">
             <a href="/chat">Quay lại</a>
         </div>
 		<div class="col-3 d-flex" style="justify-content: space-around;align-items: center;margin-bottom:15px">
@@ -33,12 +33,12 @@
             <div class="card p-3">
                 <img src="{{ asset('img/twilio.png') }}" class="h50">
             </div>
-        </div> 
+        </div>
     </div>
     <main class="content">
     <div class="container p-0">
 			<div class="row g-0">
-            <div class="col-12 col-lg-5 col-xl-3 border-right" style="height: 620px;overflow: auto;"> 
+            <div class="col-12 col-lg-5 col-xl-3 border-right" style="height: 620px;overflow: auto;">
 					<div class="px-4 d-none d-md-block">
 						<div class="d-flex align-items-center">
 							<div class="flex-grow-1">
@@ -67,7 +67,7 @@
 <script src="{{ asset('js/app.js') }}" ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-<script> 
+<script>
 </script>
 </body>
 </html>

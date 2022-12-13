@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <title>Trang chủ</title>
-    
+
 </head>
 <body>
 <div class="container">
-    <div class="row"> 
+    <div class="row">
         <div class="col-11">
             <a href="/payment">Quay lại</a>
         </div>
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <h4 class="text-center mt-5">History</h4> 
+        <h4 class="text-center mt-5">History</h4>
             <table class="table text-center">
             <thead>
         <tr>

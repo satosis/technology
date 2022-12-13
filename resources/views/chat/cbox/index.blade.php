@@ -14,22 +14,22 @@
 </head>
 <body>
 <div class="container">
-    <div class="row"> 
-	<div class="col-9"> 
+    <div class="row">
+	<div class="col-9">
             <a href="/chat">Quay lại</a>
         </div>
-        <div class="col-3 d-flex" style="justify-content: space-around;">  
-            <a href="https://www.cbox.ws/admin?home">Tutorial</a>  
-        </div> 
+        <div class="col-3 d-flex" style="justify-content: space-around;">
+            <a href="https://www.cbox.ws/admin?home">Tutorial</a>
+        </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
                 <img src="{{ asset('img/cbox.png') }}" class="h50">
             </div>
-        </div> 
+        </div>
     </div>
     <main class="content">
     <div class="container p-0">
-    <iframe src="https://www5.cbox.ws/box/?boxid=933605&boxtag=mS51WF" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+    <iframe src="https://www5.cbox.ws/box/?boxid=933605&boxtag=mS51WF" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
 	</div>
 </main>
 </div>

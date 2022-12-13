@@ -14,8 +14,8 @@
 </head>
 <body>
 <div class="container" id="app">
-    <div class="row"> 
-        <div class="col-11"> 
+    <div class="row">
+        <div class="col-11">
             <a href="/chat">Quay lại</a>
         </div>
         <div class="col-1 d-flex" style="justify-content: space-around;">
@@ -31,17 +31,17 @@
                     <li><a class="dropdown-item" href="https://pusher.com/channels/pricing">Price</a></li>
                 </ul>
             </div>
-        </div> 
+        </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
                 <img src="{{ asset('img/pusher.png') }}" class="h50">
             </div>
-        </div> 
+        </div>
     </div>
     <main class="content">
     <div class="container p-0">
 			<div class="row g-0">
-				<div class="col-12 col-lg-5 col-xl-3 border-right" style="height: 620px;overflow: auto;"> 
+				<div class="col-12 col-lg-5 col-xl-3 border-right" style="height: 620px;overflow: auto;">
 					<div class="px-4 d-none d-md-block">
 						<div class="d-flex align-items-center">
 							<div class="flex-grow-1">
@@ -52,7 +52,7 @@
 					@foreach($user as $list)
 					<a href="/chat/pusher/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
 						<div class="d-flex align-items-start">
-							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" width="40" height="40">
+							<img src="{{ $list->avatar }}" class="rounded-circle mr-1" onerror="this.src='/img/avatar1.png';" width="40" height="40">
 							<div class="flex-grow-1 ml-3">
 								{{ $list->name }}
 								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
@@ -64,13 +64,13 @@
 				</div>
 				<pusher-chat-component :auth-user="{{ $authUser }}" :other-user="{{ $otherUser }}" :chats="{{ $chat }}"> </pusher-chat-component>
 			</div>
-	</div> 
+	</div>
 </main>
 </div>
 <script src="{{ asset('js/app.js') }}" ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-<script> 
+<script>
 </script>
 </body>
 </html>

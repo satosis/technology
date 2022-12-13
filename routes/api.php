@@ -32,19 +32,19 @@ Route::group(['prefix' => 'payment'],
     function () {
         Route::group(['prefix' => 'paypay'],
             function () {
-                Route::post('/', [PaypayController::class, 'paypay']); 
+                Route::post('/', [PaypayController::class, 'paypay']);
                 Route::post('/webhook', [PaypayController::class, 'webhook']);
             }
         );
         Route::group(['prefix' => 'stripe'],
             function () {
-                Route::post('/', [StripeController::class, 'paypal']); 
+                Route::post('/', [StripeController::class, 'stripe']);
                 Route::post('/webhook', [StripeController::class, 'webhook']);
             }
         );
         Route::group(['prefix' => 'paypal'],
             function () {
-                Route::post('/', [PaypalController::class, 'paypal']); 
+                Route::post('/', [PaypalController::class, 'paypal']);
                 Route::post('/webhook', [PaypalController::class, 'webhook']);
             }
         );
@@ -54,8 +54,8 @@ Route::group(['prefix' => 'chat'],
     function () {
         Route::group(['prefix' => 'twilio'],
         function () {
-            Route::get('/list/{room}', [TwilioChatController::class, 'list']); 
-            Route::post('/token', [TwilioChatController::class, 'token']); 
+            Route::get('/list/{room}', [TwilioChatController::class, 'list']);
+            Route::post('/token', [TwilioChatController::class, 'token']);
             Route::post('/webhook', [TwilioChatController::class, 'webhook']);
             }
         );
@@ -64,12 +64,12 @@ Route::group(['prefix' => 'chat'],
             Route::post('/store', [PusherChatController::class, 'store']);
             Route::post('/upload', [PusherChatController::class, 'upload']);
             }
-        ); 
+        );
     }
 );
 
 Route::group(['prefix' => 'login'],
-    function () { 
+    function () {
         Route::group(['prefix' => 'line'],
             function () {
                 Route::post('/webhook', [LineController::class, 'webhook']);
@@ -81,7 +81,7 @@ Route::group(['prefix' => 'video'],
     function () {
         Route::group(['prefix' => 'twilio'],
         function () {
-            Route::post('/token', [TwilioVideoController::class, 'token']); 
+            Route::post('/token', [TwilioVideoController::class, 'token']);
             }
         );
     }
@@ -93,21 +93,21 @@ Route::group(['prefix' => 'sms'],
             function () {
                 Route::post('/send', [VonageController::class, 'send']);
             }
-        );  
+        );
         Route::group(['prefix' => 'twilio'],
         function () {
             Route::post('/send', [TwilioSmsController::class, 'send']);
             }
-        ); 
-    }   
+        );
+    }
 );
- 
+
 Route::group(['prefix' => 'comment'],
 function () {
     Route::group(['prefix' => 'pusher'],
     function () {
         Route::post('/store', [PusherCommentController::class, 'store']);
         }
-    ); 
-}   
+    );
+}
 );

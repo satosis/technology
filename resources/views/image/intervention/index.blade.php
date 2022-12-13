@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Team Pega</title>
     <link rel="stylesheet" href="{{ asset('css/image.css') }}">
-   
+
 	<link rel="stylesheet" href="{{ asset('css/chat.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
@@ -15,8 +15,8 @@
 
 <body>
 <div class="container pt-5">
-    <div class="row"> 
-        <div class="col-11"> 
+    <div class="row">
+        <div class="col-11">
             <a href="/image">Quay lại</a>
         </div>
         <div class="col-1 d-flex" style="justify-content: space-around;">
@@ -26,7 +26,7 @@
             <div class="card p-3 df">
                 <img src="{{ asset('img/intervention.png') }}" class="h50">
             </div>
-        </div>  
+        </div>
     </div>
 
     <form action="/image/intervention/upload" method="post" class="text-center mt-5" enctype="multipart/form-data">
@@ -65,7 +65,7 @@
             <p class="tw1">DEVELOPER<span class="vis">AAAA</span></p>
             <img src="{{ asset('img/photo6.png') }}">
             <p class="t1">Stan Jhon</p>
-           
+
         </div>
     </div>
     <div class="fter"><h3 class="footer">muhsin61@DevChallenge.org</h3></div>

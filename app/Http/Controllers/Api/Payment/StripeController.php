@@ -36,5 +36,6 @@ class StripeController extends Controller
     public function webhook(Request $request)
     {
         $this->stripeServices->webhookPaymentTransaction($request);
+        return true;
     }
 }

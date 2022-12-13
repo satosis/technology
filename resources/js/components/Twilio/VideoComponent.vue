@@ -79,7 +79,7 @@ export default {
 
             // Create the video container
             this.createVideoContainer(participant)
-            // Attach the 
+            // Attach the
             participant.tracks.forEach(publication => {
 
                 if ('audio' == publication.kind)

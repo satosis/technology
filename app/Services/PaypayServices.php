@@ -3,10 +3,9 @@
 namespace App\Services;
 
 use App\Models\Payment;
-use Config;
-use DB;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Log;
 use PayPay\OpenPaymentAPI\Client;
 use PayPay\OpenPaymentAPI\Models\CreateQrCodePayload;
 
@@ -59,7 +58,9 @@ class PaypayServices
 
     public function cancelPaymentTransaction($request)
     {
-        return $this->client->payment->cancelPayment("Consultant-" . $request->consultant . "-Advisor-" . $request->advisor);
+        return $this->client->payment->cancelPayment(
+            "Consultant-" . $request->consultant . "-Advisor-" . $request->advisor
+        );
     }
 
     public function webhookPaymentTransaction($request)

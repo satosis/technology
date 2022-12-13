@@ -11,8 +11,8 @@
 </head>
 <body>
 <div class="container">
-    <div class="row"> 
-        <div class="col-11"> 
+    <div class="row">
+        <div class="col-11">
             <a href="/sms">Quay lại</a>
         </div>
         <div class="col-1 d-flex" style="justify-content: space-around;">
@@ -22,7 +22,7 @@
             <div class="card p-3">
                 <img src="{{ asset('img/twilio.png') }}" class="h50">
             </div>
-        </div>  
+        </div>
     </div>
     <main class="content">
     <div class="container p-0 mt-5">
@@ -30,12 +30,12 @@
 		<input type="text" class=" mt-5 text-center form-control" id="phone" autocomplete="off" placeholder="Phone" value="0948561668" disabled>
 		<input type="text" class=" mt-5 text-center form-control" id="text" autocomplete="off" placeholder="Text">
       <button type="button" class=" mt-5 btn send btn-primary">Send</button>
-</form>		 
-				 
-			</div>
+</form>
+
+</div>
 	</div>
 </main>
-</div> 
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script>

@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="row"> 
+    <div class="row">
         <div class="col-8">
             <a href="/">Quay lại</a>
         </div>
@@ -87,14 +87,14 @@
                                 <img src="{{ asset('img/qrcode-line.png') }}" alt="QRcode" style="height:150px"></img>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="{{ asset('js/jquery.js') }}"></script> 
+<script src="{{ asset('js/jquery.js') }}"></script>
 </body>
 </html>

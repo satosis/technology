@@ -40,8 +40,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/profile', [UserController::class, 'index'])->middleware('auth');
- 
-Route::get('/test', [FacebookController::class, 'test']); 
+
+Route::get('/test', [FacebookController::class, 'test']);
 Route::group(['prefix' => 'payment','middleware' => 'auth'],
     function () {
         Route::get('/', [PaymentController::class, 'index']);
@@ -52,7 +52,7 @@ Route::group(['prefix' => 'payment','middleware' => 'auth'],
 );
 
 Route::group(['prefix' => 'login'],
-    function () { 
+    function () {
         Route::group(['prefix' => 'line'],
             function () {
                 Route::get('/', [LineController::class, 'redirect']);
@@ -82,20 +82,20 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
                 Route::get('/', [TwilioChatController::class, 'index']);
                 Route::get('/{id}', [TwilioChatController::class, 'chat']);
             }
-        );  
+        );
         Route::group(['prefix' => 'pusher'],
             function () {
-                Route::get('/', [PusherChatController::class, 'index']); 
+                Route::get('/', [PusherChatController::class, 'index']);
                 Route::get('/{id}', [PusherChatController::class, 'chat']);
             }
-        ); 
+        );
         Route::group(['prefix' => 'cbox'],
             function () {
-                Route::get('/', [CBoxChatController::class, 'index']); 
+                Route::get('/', [CBoxChatController::class, 'index']);
                 Route::get('/{id}', [CBoxChatController::class, 'chat']);
             }
         );
-    }   
+    }
 );
 
 Route::group(['prefix' => 'comment','middleware' => 'auth'],
@@ -104,8 +104,8 @@ Route::group(['prefix' => 'comment','middleware' => 'auth'],
         function () {
             Route::get('/', [PusherCommentController::class, 'list']);
             }
-        ); 
-    }   
+        );
+    }
 );
 
 Route::group(['prefix' => 'video','middleware' => 'auth'],
@@ -116,14 +116,14 @@ Route::group(['prefix' => 'video','middleware' => 'auth'],
                 Route::get('/', [TwilioVideoController::class, 'index']);
                 Route::get('/{id}', [TwilioVideoController::class, 'video']);
             }
-        );  
+        );
         Route::group(['prefix' => 'pusher'],
             function () {
-                Route::get('/', [PusherVideoController::class, 'index']); 
-                Route::get('/{id}', [PusherVideoController::class, 'video']);
+                // Route::get('/', [PusherVideoController::class, 'index']);
+                // Route::get('/{id}', [PusherVideoController::class, 'video']);
             }
-        ); 
-    }   
+        );
+    }
 );
 
 Route::group(['prefix' => 'sms','middleware' => 'auth'],
@@ -133,13 +133,13 @@ Route::group(['prefix' => 'sms','middleware' => 'auth'],
             function () {
                 Route::get('/', [VonageController::class, 'index']);
             }
-        );  
+        );
         Route::group(['prefix' => 'twilio'],
             function () {
                 Route::get('/', [TwilioSmsController::class, 'index']);
             }
-        );  
-    }   
+        );
+    }
 );
 
 Route::group(['prefix' => 'image','middleware' => 'auth'],
@@ -150,22 +150,21 @@ Route::group(['prefix' => 'image','middleware' => 'auth'],
                 Route::get('/', [InterventionController::class, 'index']);
                 Route::post('/upload', [InterventionController::class, 'upload']);
             }
-        );  
+        );
         Route::group(['prefix' => 'spatie'],
             function () {
                 Route::get('/', [SpatieController::class, 'index']);
                 Route::post('/upload', [SpatieController::class, 'upload']);
             }
-        );  
-    }   
+        );
+    }
 );
 
 Route::group(['prefix' => 'date'],
 function () {
     Route::get('/', [DateController::class, 'index']);
 }
-); 
+);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
