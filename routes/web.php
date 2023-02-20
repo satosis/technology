@@ -1,29 +1,29 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\Payment\PaypayController;
-use App\Http\Controllers\Backend\Payment\StripeController;
-use App\Http\Controllers\Backend\Payment\PaypalController;
-use App\Http\Controllers\Backend\Payment\PaymentController;
-use App\Http\Controllers\Backend\Login\LoginController;
-use App\Http\Controllers\Backend\Login\GoogleController;
-use App\Http\Controllers\Backend\Login\FacebookController;
-use App\Http\Controllers\Backend\Login\LineController;
-use App\Http\Controllers\Backend\Chat\ChatController;
 use App\Http\Controllers\Backend\Chat\CBoxChatController;
-use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
+use App\Http\Controllers\Backend\Chat\ChatController;
 use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
-use App\Http\Controllers\Backend\Video\VideoController;
-use App\Http\Controllers\Backend\Video\TwilioController as TwilioVideoController;
-use App\Http\Controllers\Backend\Profile\UserController;
-use App\Http\Controllers\Backend\Sms\SmsController;
-use App\Http\Controllers\Backend\Sms\VonageController;
-use App\Http\Controllers\Backend\Sms\TwilioController as TwilioSmsController;
+use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
+use App\Http\Controllers\Backend\Comment\PusherController as PusherCommentController;
+use App\Http\Controllers\Backend\DateController;
 use App\Http\Controllers\Backend\Image\ImageController;
 use App\Http\Controllers\Backend\Image\InterventionController;
 use App\Http\Controllers\Backend\Image\SpatieController;
-use App\Http\Controllers\Backend\DateController;
-use App\Http\Controllers\Backend\Comment\PusherController as PusherCommentController;
+use App\Http\Controllers\Backend\Login\FacebookController;
+use App\Http\Controllers\Backend\Login\GoogleController;
+use App\Http\Controllers\Backend\Login\LineController;
+use App\Http\Controllers\Backend\Login\LoginController;
+use App\Http\Controllers\Backend\Payment\PaymentController;
+use App\Http\Controllers\Backend\Payment\PaypalController;
+use App\Http\Controllers\Backend\Payment\PaypayController;
+use App\Http\Controllers\Backend\Payment\StripeController;
+use App\Http\Controllers\Backend\Profile\UserController;
+use App\Http\Controllers\Backend\Sms\SmsController;
+use App\Http\Controllers\Backend\Sms\TwilioController as TwilioSmsController;
+use App\Http\Controllers\Backend\Sms\VonageController;
+use App\Http\Controllers\Backend\Video\TwilioController as TwilioVideoController;
+use App\Http\Controllers\Backend\Video\VideoController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

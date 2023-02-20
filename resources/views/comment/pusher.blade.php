@@ -160,7 +160,8 @@
                 <li class="nav-item"><a class="nav-link" href="#" data-abc="true">Work</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" data-abc="true">Capabilities</a></li>
                 <li class="nav-item "><a class="nav-link" href="#" data-abc="true">Articles</a></li>
-                <li class="nav-item active"><a class="nav-link mt-2" href="#" data-abc="true" id="clicked">Contact</a></li>
+                <li class="nav-item active"><a class="nav-link mt-2" href="#" data-abc="true" id="clicked">Contact</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -168,7 +169,8 @@
 <!-- Main Body -->
 <section id="app">
     <div class="container">
-        <pusher-comment-component :auth-user="{{ \Auth::user() }}" :comments="{{ $comment }}"></pusher-comment-component>
+        <pusher-comment-component :auth-user="{{ \Auth::user() }}"
+                                  :comments="{{ $comment }}"></pusher-comment-component>
     </div>
 </section>
 </body>

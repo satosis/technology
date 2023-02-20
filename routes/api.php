@@ -1,17 +1,17 @@
 <?php
 
+use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
+use App\Http\Controllers\Api\Chat\TwilioController as TwilioChatController;
+use App\Http\Controllers\Api\Comment\PusherController as PusherCommentController;
+use App\Http\Controllers\Api\Login\LineController;
+use App\Http\Controllers\Api\Payment\PaypalController;
+use App\Http\Controllers\Api\Payment\PaypayController;
+use App\Http\Controllers\Api\Payment\StripeController;
+use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
+use App\Http\Controllers\Api\Sms\VonageController;
+use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Payment\PaypayController;
-use App\Http\Controllers\Api\Payment\PaypalController;
-use App\Http\Controllers\Api\Payment\StripeController;
-use App\Http\Controllers\Api\Chat\TwilioController as TwilioChatController;
-use App\Http\Controllers\Api\Chat\PusherController as PusherChatController;
-use App\Http\Controllers\Api\Video\TwilioController as TwilioVideoController;
-use App\Http\Controllers\Api\Login\LineController;
-use App\Http\Controllers\Api\Sms\VonageController;
-use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
-use App\Http\Controllers\Api\Comment\PusherController as PusherCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,16 +53,16 @@ Route::group(['prefix' => 'payment'],
 Route::group(['prefix' => 'chat'],
     function () {
         Route::group(['prefix' => 'twilio'],
-        function () {
-            Route::get('/list/{room}', [TwilioChatController::class, 'list']);
-            Route::post('/token', [TwilioChatController::class, 'token']);
-            Route::post('/webhook', [TwilioChatController::class, 'webhook']);
+            function () {
+                Route::get('/list/{room}', [TwilioChatController::class, 'list']);
+                Route::post('/token', [TwilioChatController::class, 'token']);
+                Route::post('/webhook', [TwilioChatController::class, 'webhook']);
             }
         );
         Route::group(['prefix' => 'pusher'],
-        function () {
-            Route::post('/store', [PusherChatController::class, 'store']);
-            Route::post('/upload', [PusherChatController::class, 'upload']);
+            function () {
+                Route::post('/store', [PusherChatController::class, 'store']);
+                Route::post('/upload', [PusherChatController::class, 'upload']);
             }
         );
     }
@@ -80,8 +80,8 @@ Route::group(['prefix' => 'login'],
 Route::group(['prefix' => 'video'],
     function () {
         Route::group(['prefix' => 'twilio'],
-        function () {
-            Route::post('/token', [TwilioVideoController::class, 'token']);
+            function () {
+                Route::post('/token', [TwilioVideoController::class, 'token']);
             }
         );
     }
@@ -95,19 +95,19 @@ Route::group(['prefix' => 'sms'],
             }
         );
         Route::group(['prefix' => 'twilio'],
-        function () {
-            Route::post('/send', [TwilioSmsController::class, 'send']);
+            function () {
+                Route::post('/send', [TwilioSmsController::class, 'send']);
             }
         );
     }
 );
 
 Route::group(['prefix' => 'comment'],
-function () {
-    Route::group(['prefix' => 'pusher'],
     function () {
-        Route::post('/store', [PusherCommentController::class, 'store']);
-        }
-    );
-}
+        Route::group(['prefix' => 'pusher'],
+            function () {
+                Route::post('/store', [PusherCommentController::class, 'store']);
+            }
+        );
+    }
 );

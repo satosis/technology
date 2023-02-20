@@ -7,7 +7,7 @@
     <title>My Team Pega</title>
     <link rel="stylesheet" href="{{ asset('css/image.css') }}">
 
-	<link rel="stylesheet" href="{{ asset('css/chat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
@@ -38,27 +38,27 @@
     <div class="crews">
         <div class="human">
             <p class="tw1">PRODUCT OWNER</p>
-            <img src="{{ asset('img/photo1.png') }}" >
+            <img src="{{ asset('img/photo1.png') }}">
             <p class="t1">Bill Mahoney</p>
         </div>
         <div class="human">
             <p class="tw1 tw12">ART DIRECTOR<span class="vis">A</span></p>
-            <img class="humanx" src="{{ asset('img/photo2.png') }}" >
+            <img class="humanx" src="{{ asset('img/photo2.png') }}">
             <p class="t1 humanx">Saba Cabrera</p>
         </div>
         <div class="human">
             <p class="tw1">TECH LEAD<span class="vis">AAAAA</span></p>
-            <img src="{{ asset('img/photo3.png') }}" >
+            <img src="{{ asset('img/photo3.png') }}">
             <p class="t1">Shae Le</p>
         </div>
         <div class="human">
             <p class="tw1">UX DESİGNER<span class="vis">AAA</span></p>
-            <img src="{{ asset('img/photo4.png') }}" >
+            <img src="{{ asset('img/photo4.png') }}">
             <p class="t1">Skylah Lu</p>
         </div>
         <div class="human hu">
             <p class="tw1 tw12">DEVELOPER<span class="vis">AAAA</span></p>
-            <img class="humanx" src="{{ asset('img/photo5.png') }}" >
+            <img class="humanx" src="{{ asset('img/photo5.png') }}">
             <p class="t1 humanx">Griff Richards</p>
         </div>
         <div class="human humany">

@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
+use App\Models\Payment;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
-use App\Models\Payment;
 
 class StripeServices
 {
@@ -23,8 +23,8 @@ class StripeServices
             'line_items' => [
                 [
                     'price_data' => [
-                        // 'currency' => 'jpy',
-                        'currency' => 'usd',
+                        'currency' => 'jpy',
+                        // 'currency' => 'usd',
                         'product_data' => [
                             'name' => 'Text transfer1'
                         ],
@@ -35,8 +35,8 @@ class StripeServices
 
                 [
                     'price_data' => [
-                        // 'currency' => 'jpy',
-                        'currency' => 'usd',
+                        'currency' => 'jpy',
+                        // 'currency' => 'usd',
                         'product_data' => [
                             'name' => 'Text transfer2'
                         ],

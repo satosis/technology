@@ -17,32 +17,47 @@
         </div>
         <div class="col-4 d-flex" style="justify-content: space-around;align-items: center;margin-bottom:15px">
             <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                     LINE
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{{ asset('docs/line_setup.docx') }}" class="text-right">Tài liệu</a></li>
-                    <li><a class="dropdown-item" href="https://developers.line.biz/ja/reference/line-login">Login</a></li>
-                    <li><a class="dropdown-item" href="https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission">Add email </a></li>
-                    <li><a class="dropdown-item" href="https://developers.line.biz/en/docs/line-login/link-a-bot/#displaying-the-option-to-add-your-line-official-account-as-a-friend">Add friend</a></li>
-                    <li><a href="https://developers.line.biz/console/channel/1657089077/messaging-api" class="dropdown-item">Add webhook</a></li>
+                    <li><a class="dropdown-item" href="{{ asset('docs/line_setup.docx') }}" class="text-right">Tài
+                            liệu</a></li>
+                    <li><a class="dropdown-item" href="https://developers.line.biz/ja/reference/line-login">Login</a>
+                    </li>
+                    <li><a class="dropdown-item"
+                           href="https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission">Add
+                            email </a></li>
+                    <li><a class="dropdown-item"
+                           href="https://developers.line.biz/en/docs/line-login/link-a-bot/#displaying-the-option-to-add-your-line-official-account-as-a-friend">Add
+                            friend</a></li>
+                    <li><a href="https://developers.line.biz/console/channel/1657089077/messaging-api"
+                           class="dropdown-item">Add webhook</a></li>
                 </ul>
             </div>
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                     GOOGLE
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="https://viblo.asia/p/login-google-api-trong-laravel-7x-LzD5d1VwKjY" class="text-right">Tutorial</a></li>
-                    <li><a class="dropdown-item" href="https://console.cloud.google.com/apis/credentials?hl=vi&project=test-web-344515">Config</a></li>
+                    <li><a class="dropdown-item"
+                           href="https://viblo.asia/p/login-google-api-trong-laravel-7x-LzD5d1VwKjY" class="text-right">Tutorial</a>
+                    </li>
+                    <li><a class="dropdown-item"
+                           href="https://console.cloud.google.com/apis/credentials?hl=vi&project=test-web-344515">Config</a>
+                    </li>
                 </ul>
             </div>
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                     FACEBOOK
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="https://developers.facebook.com/apps/325986579363528/settings/basic/">Config</a></li>
+                    <li><a class="dropdown-item"
+                           href="https://developers.facebook.com/apps/325986579363528/settings/basic/">Config</a></li>
                 </ul>
             </div>
         </div>
@@ -77,12 +92,16 @@
         <div class="col-12">
             <div class="p-3">
                 <div class="card-body border p-0">
-                    <p> <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample"> <span class="fw-bold">Line</span> <span class="fab fa-cc-paypal"> </span> </a> </p>
+                    <p><a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between"
+                          data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+                          aria-controls="collapseExample"> <span class="fw-bold">Line</span> <span
+                                    class="fab fa-cc-paypal"> </span> </a></p>
                     <div class="collapse show p-3 pt-0" id="collapseExample">
                         <div class="row">
                             <div class="col-8">
                                 <p class="h4 mb-0">Lưu ý</p>
-                                <p class="mb-0">Trước khi đăng nhập bằng Line , bạn cần kết bạn với tài khoản Line Official Account</p>
+                                <p class="mb-0">Trước khi đăng nhập bằng Line , bạn cần kết bạn với tài khoản Line
+                                    Official Account</p>
                                 <p class="mb-0"><span class="fw-bold">QR code:</span></p>
                                 <img src="{{ asset('img/qrcode-line.png') }}" alt="QRcode" style="height:150px"></img>
                             </div>
