@@ -88,8 +88,10 @@
                     <td>
                         @if($list->status == 0)
                             Đang chờ
-                        @else
+                        @elseif($list->status == 1)
                             Thành công
+                        @else
+                            Thất bại
                         @endif
                     </td>
                     <td>{{ $list->code }}</td>
