@@ -1,0 +1,89 @@
+*{box-sizing: border-box;}
+html, body{ height: 100%;}
+.header{
+    padding-top: 20px;
+}
+.hood{
+    float: left;
+    width: 50%;
+    font-family: PT Serif;
+    font-weight: bold;
+    text-align: center;
+}
+.text{
+    float: left;
+    width: 50%;
+    font-family: Poppins;
+    text-align: left;
+}
+#text-p{
+    font-family: Poppins;
+    font-weight: normal;
+}
+.crews{
+    padding: 100px;
+}
+img{
+    width: 60%;
+    text-align: center;
+}
+.human{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    position: relative;
+}
+.humanx{
+    position: relative;
+    top: 50px;
+}
+.t1{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+}
+.tw1{
+    transform: rotate(90deg);
+    left: 33%;
+    top: 75px;
+    position: relative;
+    justify-content: center;
+    font-family: PT Serif;
+    font-size: 12px;
+}
+.tw12{
+    top: 120px;
+}
+.fter{
+    float: left;
+    width: 100%;
+    font-family: PT Serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 100px;
+}
+.vis{
+    visibility: hidden;
+}
+.hu{margin-top: -500px;}
+.humany{
+    margin-top: -400px;
+}
+.df{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 15cm){
+    .hood{width: 100%;}
+    .text{width: 100%;}
+    .human{width: 50%;}
+    .humanx{top: 0px;}
+    .humany{top: 75px;}
+    .crews{padding: 10px;}
+    .tw1{left: 44%;}
+    .tw12{top: 75px;}
+    .fter{text-align:center;padding:50px 0px 0px 0px}
+    img{width: 80%;}
+}
