@@ -18,25 +18,21 @@
         </div>
         <div class="col-1 d-flex" style="justify-content: space-around;">
             <div class="dropdown">
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1"
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                    PAYPAY
+                    MOMO
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{{ asset('docs/paypay_setup.docx') }}">Tài liệu</a></li>
                     <li><a class="dropdown-item"
-                           href="https://www.paypay.ne.jp/opa/doc/v1.0/dynamicqrcode#section/Handle-unknown-payment-status">Docs</a>
+                           href="https://github.com/momo-wallet/payment/blob/master/php/atm/atm_momo.php">Code demo</a>
                     </li>
-                    <li><a class="dropdown-item" href="https://developer.paypay.ne.jp/settings">Config</a></li>
-                    <li><a class="dropdown-item"
-                           href="https://integration.paypay.ne.jp/hc/ja/articles/4414061901199?input_string=paypay+app">Sanbox
-                            app</a></li>
+                    <li><a class="dropdown-item" href="https://developers.momo.vn/v3/vi/docs/payment/onboarding/test-instructions/">Tài khoản test</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
-                <img src="{{ asset('img/paypay.svg') }}" class="h50">
+                <img src="{{ asset('img/momo.png') }}" class="h50">
             </div>
         </div>
         <div class="col-12">
@@ -48,19 +44,19 @@
                                 <p class="h4 mb-0">Summary</p>
                                 <p class="mb-0"><span class="fw-bold">Product:</span><span
                                             class="c-green">: Donate</span></p>
-                                <p class="mb-0"><span class="fw-bold">Price:</span><span
-                                            class="c-green">: 100 JPY</span></p>
+                                <p class="mb-0"><span class="fw-bold">Price:</span><span class="c-green">: 100.000VNĐ</span>
+                                </p>
                             </div>
                             <div class="col-6 text-center">
                                 <p class="h4 mb-0">Test User</p>
-                                <p class="mb-0"><span class="fw-bold">Phone:</span><span
-                                            class="c-green">: 08087127161</span></p>
-                                <p class="mb-0"><span class="fw-bold">Password:</span><span
-                                            class="c-green">: 6PfnUkpvGl</span></p>
-                                <p class="mb-0"><span class="fw-bold">OTP:</span><span class="c-green">: 1234</span></p>
+                                <p class="mb-0"><span class="fw-bold">STK:</span><span class="c-green">: 9704000000000018</span></p>
+                                <p class="mb-0"><span class="fw-bold">Tên chủ thẻ:</span><span class="c-green">: NGUYEN VAN A</span></p>
+                                <p class="mb-0"><span class="fw-bold">Ngày phát hành:</span><span class="c-green">: 03/07</span></p>
+                                <p class="mb-0"><span class="fw-bold">SĐT:</span><span class="c-green">: Không nhập</span></p>
+                                <p class="mb-0"><span class="fw-bold">Mã Xác thực (OTP):</span><span class="c-green">: OTP</span></p>
                             </div>
                         </div>
-                        <div class="col-12" id="paypay">
+                        <div class="col-12" id="momo">
                             <div class="btn btn-primary payment"> Make Payment</div>
                         </div>
                     </div>
@@ -75,12 +71,13 @@
                 <th scope="col">Số tiền</th>
                 <th scope="col">Trạng thái</th>
                 <th scope="col">Code</th>
+                <th scope="col">Thời gian</th>
             </tr>
             </thead>
             <tbody>
             @if(!count($payment))
                 <tr>
-                    <th colspan="4">Không có dữ liệu</th>
+                    <th colspan="5">Không có dữ liệu</th>
                 </tr>
             @endif
             @foreach($payment as $key => $list)
@@ -90,11 +87,14 @@
                     <td>
                         @if($list->status == 0)
                             Đang chờ
-                        @else
+                        @elseif($list->status == 1)
                             Thành công
+                        @else
+                            Thất bại
                         @endif
                     </td>
                     <td>{{ $list->code }}</td>
+                    <td>{{ $list->created_at }}</td>
                 </tr>
             @endforeach
             </tbody>
@@ -109,14 +109,14 @@
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script>
     $(function () {
-        $('#paypay').on('click', function () {
-            var amount = 100;
-            var url = "/api/payment/paypay";
+        $('#momo').on('click', function () {
+            var amount = 100000;
+            var url = "/api/payment/momo";
             $.post({
                 url: url,
                 data: {amount: amount},
                 success: function (res) {
-                    window.location.href = res.url
+                    window.location.href = res
                 }
             })
         })

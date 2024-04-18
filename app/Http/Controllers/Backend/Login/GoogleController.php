@@ -24,6 +24,7 @@ class GoogleController extends Controller
 
     function createUser($getInfo)
     {
+        dd($getInfo);
         $user = User::where('email', $getInfo->email)->first();
         if (!$user) {
             $image = $getInfo->avatar;
@@ -36,8 +37,12 @@ class GoogleController extends Controller
                 'email' => $getInfo->email,
                 'avatar' => $avatar,
                 'provider_name' => 'google',
-                'provider_id' => $getInfo->id
+                'provider_id' => $getInfo->id,
+                'refresh_token' => $getInfo->token,
             ]);
+        } else {
+            $user->refresh_token = $getInfo->token;
+            $user->update();
         }
         return $user;
     }

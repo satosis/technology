@@ -48,7 +48,7 @@
                                 </p>
                             </div>
                             <div class="col-6 text-left">
-                                <p class="h4 mb-0 text-center">Test User</p>
+                                <p class="h4 mb-0" style="margin-left: 100px">Test User</p>
                                 <p class="mb-0"><span class="fw-bold">Payment succeed:</span><span class="c-green">: 4242 4242 4242 4242</span>
                                 </p>
                                 <p class="mb-0"><span class="fw-bold">Payment requires authentication:</span><span
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <h4 class="text-center mt-5">History</h4>
+        <h4 class="text-center">History</h4>
         <table class="table text-center">
             <thead>
             <tr>

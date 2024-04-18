@@ -11,7 +11,4 @@ class VonageServices
         $code = SendCode::SendCode($phone, $text);
         return $code;
     }
-} 
-    
-   
- 
+}

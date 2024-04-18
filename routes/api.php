@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Comment\PusherController as PusherCommentController
 use App\Http\Controllers\Api\Login\LineController;
 use App\Http\Controllers\Api\Payment\PaypalController;
 use App\Http\Controllers\Api\Payment\VnpayController;
+use App\Http\Controllers\Api\Payment\MomoController;
 use App\Http\Controllers\Api\Payment\PaypayController;
 use App\Http\Controllers\Api\Payment\StripeController;
 use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
@@ -53,6 +54,12 @@ Route::group(['prefix' => 'payment'],
             function () {
                 Route::post('/', [VnpayController::class, 'vnpay']);
                 Route::get('/callback', [VnpayController::class, 'callback']);
+            }
+        );
+        Route::group(['prefix' => 'momo'],
+            function () {
+                Route::post('/', [MomoController::class, 'momo']);
+                Route::get('/callback', [MomoController::class, 'callback']);
             }
         );
     }

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->nullable();
             $table->string('avatar')->nullable();
             $table->integer('active')->default(1);
+            $table->string('refresh_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

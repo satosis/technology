@@ -13,12 +13,19 @@
 <body>
 <section class="ftco-section" id="buttons">
     <div class="container">
-        <div class="row">
-            <div class="col-md-2 d-flex" style="justify-content: space-between;">
-                <a href="/profile">Profile</a>
-                <a href="/logout">Logout</a>
+        @if (Auth::check())
+            <div class="row">
+                <div class="col-md-2 d-flex" style="justify-content: space-between;">
+                    <a href="/profile">Profile</a>
+                    <a href="javascript:void(0)" onclick="event.preventDefault(); $('.logout-form').submit();">
+                        Log Out
+                    </a>
+                    <form class="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                </div>
             </div>
-        </div>
+        @endif
         <div class="row mb-4">
             <div class="col-md-12">
                 <h2 class="heading-section"> What do you want to test ?</h2>
@@ -32,7 +39,7 @@
                             <i class="ion-ios-cash"></i>
                         </div>
                         <div class="text text-right">
-                            <h4>4</h4>
+                            <h4>5</h4>
                             <span>Payment</span>
                         </div>
                     </button>
@@ -118,15 +125,17 @@
                 </a>
             </div>
             <div class="col-md-3 mb-3">
-                <button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
-                    <div class="text text-left">
-                        <h4>343</h4>
-                        <span>Support Tickets</span>
-                    </div>
-                    <div class="icon icon-right icon-tertiary d-flex align-items-center justify-content-center">
-                        <i class="ion-ios-pricetag"></i>
-                    </div>
-                </button>
+                <a href="/ads">
+                    <button type="button" class="btn btn-white w-100 align-items-stretch d-flex">
+                        <div class="text text-left">
+                            <h4>1</h4>
+                            <span>Ads</span>
+                        </div>
+                        <div class="icon icon-right icon-tertiary d-flex align-items-center justify-content-center">
+                            <i class="ion-ios-pricetag"></i>
+                        </div>
+                    </button>
+                </a>
             </div>
         </div>
 

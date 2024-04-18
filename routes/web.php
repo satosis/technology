@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Backend\Comment\PusherController as PusherCommentController;
 use App\Http\Controllers\Backend\DateController;
+use App\Http\Controllers\Backend\Ads\AdsController;
+use App\Http\Controllers\Backend\Ads\GoogleAdsController;
 use App\Http\Controllers\Backend\Image\ImageController;
 use App\Http\Controllers\Backend\Image\InterventionController;
 use App\Http\Controllers\Backend\Image\SpatieController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\Backend\Payment\PaymentController;
 use App\Http\Controllers\Backend\Payment\PaypalController;
 use App\Http\Controllers\Backend\Payment\PaypayController;
 use App\Http\Controllers\Backend\Payment\VnpayController;
+use App\Http\Controllers\Backend\Payment\MomoController;
 use App\Http\Controllers\Backend\Payment\StripeController;
 use App\Http\Controllers\Backend\Profile\UserController;
 use App\Http\Controllers\Backend\Sms\SmsController;
@@ -48,6 +51,7 @@ Route::group(['prefix' => 'payment','middleware' => 'auth'],
         Route::get('/', [PaymentController::class, 'index']);
         Route::get('/paypay', [PaypayController::class, 'index']);
         Route::get('/vnpay', [VnpayController::class, 'index']);
+        Route::get('/momo', [MomoController::class, 'index']);
         Route::get('/stripe', [StripeController::class, 'index']);
         Route::get('/paypal', [PaypalController::class, 'index']);
     }
@@ -163,10 +167,17 @@ Route::group(['prefix' => 'image','middleware' => 'auth'],
 );
 
 Route::group(['prefix' => 'date'],
-function () {
-    Route::get('/', [DateController::class, 'index']);
-}
+    function () {
+        Route::get('/', [DateController::class, 'index']);
+    }
 );
+Route::group(['prefix' => 'ads'],
+    function () {
+        Route::get('/', [AdsController::class, 'index']);
+        Route::get('/google', [GoogleAdsController::class, 'index']);
+    }
+);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

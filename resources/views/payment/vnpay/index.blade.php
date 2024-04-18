@@ -54,7 +54,7 @@
                                 <p class="mb-0"><span class="fw-bold">Số thẻ:</span><span class="c-green">: 9704198526191432198</span></p>
                                 <p class="mb-0"><span class="fw-bold">Tên chủ thẻ:</span><span class="c-green">: NGUYEN VAN A</span></p>
                                 <p class="mb-0"><span class="fw-bold">Ngày phát hành:</span><span class="c-green">: 07/15</span></p>
-                                <p class="mb-0"><span class="fw-bold">Mật khẩu OTP:</span><span class="c-green">: 123456</span></p>
+                                <p class="mb-0"><span class="fw-bold">Mã Xác thực (OTP):</span><span class="c-green">: 123456</span></p>
                             </div>
                         </div>
                         <div class="col-12" id="vnpay">
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <h4 class="text-center mt-5">History</h4>
+        <h4 class="text-center">History</h4>
         <table class="table text-center">
             <thead>
             <tr>

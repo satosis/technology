@@ -14,25 +14,28 @@
 <div class="container">
     <div class="row">
         <div class="col-11">
-            <a href="/payment">Quay lại</a>
+            <a href="/ads">Quay lại</a>
         </div>
         <div class="col-1 d-flex" style="justify-content: space-around;">
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                    PAYPAL
+                    GOOGLE ADS
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=fUzTsIeonW4">Tutorial</a></li>
                     <li><a class="dropdown-item"
-                           href="https://developer.paypal.com/developer/applications/edit/SB:QWI3bGkyMHgxVXhUV296YXNaV1RJTE0wMzFPaWxWbUhKcDBHUVpYOUtvZ3c0c1Bqdm8zVkM2aE1YTEI4VmZfVjhBZW1FUV8zMUo5NjdrVmM=?appname=Checkout">Webhook</a>
+                           href="https://github.com/google/oauth2l?tab=readme-ov-file">Resfresh token</a>
+                    </li>
+                    <li><a class="dropdown-item"
+                           href="https://stackoverflow.com/questions/58209700/how-to-fix-the-malformed-auth-code-when-trying-to-refreshtoken-on-the-second-a">Malformed auth code.</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
-                <img src="{{ asset('img/paypal.png') }}" class="h50">
+                <img src="{{ asset('img/googleads.png') }}" class="h50">
             </div>
         </div>
         <div class="col-12">
@@ -56,68 +59,16 @@
                             </div>
                         </div>
                         <div class="col-12" id="paypal">
-                            <div class="btn btn-primary payment"> Make Payment</div>
+                            <div class="btn btn-primary ads"> Make Ads</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <h4 class="text-center">History</h4>
-        <table class="table text-center">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Số tiền</th>
-                <th scope="col">Trạng thái</th>
-                <th scope="col">Code</th>
-                <th scope="col">Thời gian</th>
-            </tr>
-            </thead>
-            <tbody>
-            @if(!count($payment))
-                <tr>
-                    <th colspan="5">Không có dữ liệu</th>
-                </tr>
-            @endif
-            @foreach($payment as $key => $list)
-                <tr>
-                    <th>{{ ++$key }}</th>
-                    <th>{{ $list->money }}</th>
-                    <td>
-                        @if($list->status == 0)
-                            Đang chờ
-                        @else
-                            Thành công
-                        @endif
-                    </td>
-                    <td>{{ $list->code }}</td>
-                    <td>{{ $list->created_at }}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <div class="box-footer">
-            {!! $payment->links() !!}
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/jquery.js') }}"></script>
-<script>
-    $(function () {
-        $('#paypal').on('click', function () {
-            var amount = 100;
-            var url = "/api/payment/paypal";
-            $.post({
-                url: url,
-                data: {amount: amount},
-                success: function (res) {
-                    window.location.href = res
-                }
-            })
-        })
-    })
-</script>
 </body>
 </html>
