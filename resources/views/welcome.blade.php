@@ -65,7 +65,7 @@
                             <i class="ion-ios-chatboxes"></i>
                         </div>
                         <div class="text text-right">
-                            <h4>3</h4>
+                            <h4>4</h4>
                             <span>Chat</span>
                         </div>
                     </button>
