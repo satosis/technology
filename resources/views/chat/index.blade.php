@@ -45,6 +45,13 @@
                 </div>
             </a>
         </div>
+        <div class="col-lg-4 mb-3">
+            <a href="/chat/livechat" class="no-deco">
+                <div class="card p-3">
+                    <div class="img-box"><img src="{{ asset('img/livechat-logo.svg') }}" class="h50" alt=""></div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

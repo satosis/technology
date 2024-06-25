@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Chat\ChatController;
 use App\Http\Controllers\Backend\Chat\PusherController as PusherChatController;
 use App\Http\Controllers\Backend\Chat\TwilioController as TwilioChatController;
 use App\Http\Controllers\Backend\Chat\ChatraController;
+use App\Http\Controllers\Backend\Chat\LivechatController;
 use App\Http\Controllers\Backend\Comment\PusherController as PusherCommentController;
 use App\Http\Controllers\Backend\DateController;
 use App\Http\Controllers\Backend\Ads\AdsController;
@@ -108,6 +109,11 @@ Route::group(['prefix' => 'chat','middleware' => 'auth'],
                 Route::get('/{id}', [ChatraController::class, 'chat']);
             }
         );
+        Route::group(['prefix' => 'livechat'],
+        function () {
+            Route::get('/', [LivechatController::class, 'index']);
+        }
+    );
     }
 );
 
