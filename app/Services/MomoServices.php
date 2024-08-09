@@ -10,32 +10,13 @@ use Illuminate\Support\Str;
 class MomoServices
 {
 
-    function execPostRequest($url, $data)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data))
-        );
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        //execute post
-        $result = curl_exec($ch);
-        //close connection
-        curl_close($ch);
-        return $result;
-    }
-
     public function momoTransaction(Request $request)
     {
         $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
         $partnerCode = Config::get('env.momo.partner_code');
         $accessKey = Config::get('env.momo.access_key');
         $secretKey = Config::get('env.momo.secret_key');
-        $orderId = 'SA'. strtoupper(Str::random(10));
+        $orderId = 'SA-'. strtoupper(Str::random(10));
         $orderInfo = "Thanh toán qua MoMo";
         $amount = $request->amount;
         $ipnUrl = Config::get('env.momo.callback_url');
@@ -59,7 +40,7 @@ class MomoServices
             'extraData' => $extraData,
             'requestType' => $requestType,
             'signature' => $signature);
-        $result = $this->execPostRequest($endpoint, json_encode($data));
+        $result = execPostRequest($endpoint, json_encode($data));
         $jsonResult = json_decode($result, true);
 
         Pay::create([

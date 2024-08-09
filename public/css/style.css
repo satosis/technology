@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 .h50{
-    height: 50px !important;
+    height: 70px !important;
 }
 * {
     margin: 0;
@@ -31,12 +31,6 @@ body {
 .container .card .img-box {
     width: 80px;
     height: 50px
-}
-
-.container .card img {
-    object-fit: contain;
-    position: absolute;
-    left: 30%;
 }
 
 .w250{

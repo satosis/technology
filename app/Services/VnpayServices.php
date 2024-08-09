@@ -11,7 +11,7 @@ class VnpayServices
 {
     public function vnpayTransaction(Request $request)
     {
-        $code = 'SA'. strtoupper(Str::random(10));
+        $code = 'SA-'. strtoupper(Str::random(10));
         $vnp_TmnCode = Config::get('env.vnpay.code'); //Mã website tại VNPAY
         $vnp_HashSecret = Config::get('env.vnpay.secret'); //Chuỗi bí mật
         $vnp_Url = Config::get('env.vnpay.url');

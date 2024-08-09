@@ -39,7 +39,7 @@
                             <i class="ion-ios-cash"></i>
                         </div>
                         <div class="text text-right">
-                            <h4>5</h4>
+                            <h4>6</h4>
                             <span>Payment</span>
                         </div>
                     </button>

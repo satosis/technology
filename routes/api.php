@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Payment\PaypalController;
 use App\Http\Controllers\Api\Payment\VnpayController;
 use App\Http\Controllers\Api\Payment\MomoController;
 use App\Http\Controllers\Api\Payment\PaypayController;
+use App\Http\Controllers\Api\Payment\CoinpaymentController;
 use App\Http\Controllers\Api\Payment\StripeController;
 use App\Http\Controllers\Api\Sms\TwilioController as TwilioSmsController;
 use App\Http\Controllers\Api\Sms\VonageController;
@@ -60,6 +61,12 @@ Route::group(['prefix' => 'payment'],
             function () {
                 Route::post('/', [MomoController::class, 'momo']);
                 Route::get('/callback', [MomoController::class, 'callback']);
+            }
+        );
+        Route::group(['prefix' => 'coinpayment'],
+            function () {
+                Route::post('/', [CoinpaymentController::class, 'coinpayment']);
+                Route::get('/callback', [CoinpaymentController::class, 'callback']);
             }
         );
     }

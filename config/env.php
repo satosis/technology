@@ -56,9 +56,13 @@ return [
         'callback' => env('VNPAY_CALLBACK_URL', null),
     ],
     'momo' => [
-        'partner_code'        => env('MOMO_PARTNER_CODE',null),
+        'partner_code'   => env('MOMO_PARTNER_CODE',null),
         'access_key'     => env('MOMO_ACCESS_KEY', null),
         'secret_key'     => env('MOMO_SECRET_KEY', null),
         'callback_url' => env('MOMO_CALLBACK_URL', null),
+    ],
+    'coinpayment' => [
+        'public_key'   => env('COINPAYMENTS_PUBLIC_KEY',null),
+        'private_key'  => env('COINPAYMENTS_PRIVATE_KEY', null),
     ]
 ];

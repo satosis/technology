@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\Login\LoginController;
 use App\Http\Controllers\Backend\Payment\PaymentController;
 use App\Http\Controllers\Backend\Payment\PaypalController;
 use App\Http\Controllers\Backend\Payment\PaypayController;
+use App\Http\Controllers\Backend\Payment\CoinpaymentController;
 use App\Http\Controllers\Backend\Payment\VnpayController;
 use App\Http\Controllers\Backend\Payment\MomoController;
 use App\Http\Controllers\Backend\Payment\StripeController;
@@ -56,6 +57,7 @@ Route::group(['prefix' => 'payment','middleware' => 'auth'],
         Route::get('/momo', [MomoController::class, 'index']);
         Route::get('/stripe', [StripeController::class, 'index']);
         Route::get('/paypal', [PaypalController::class, 'index']);
+        Route::get('/coinpayment', [CoinpaymentController::class, 'index']);
     }
 );
 
