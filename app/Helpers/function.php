@@ -68,10 +68,10 @@ if (!function_exists('getCookie')) {
 
 
 if (!function_exists('execPostRequest')) {
-    function execPostRequest($url, $data)
+    function execPostRequest($url, $data, $method = "POST")
     {
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(

@@ -59,6 +59,13 @@
                 </div>
             </a>
         </div>
+        <div class="col-lg-4 mb-3">
+            <a href="/payment/oxapay" class="no-deco">
+                <div class="card p-3">
+                    <img src="{{ asset('img/oxapay.svg') }}" class="h50">
+                </div>
+            </a>
+        </div>
         <div class="col-12 mt-4">
             <div class="card p-3">
                 <p class="mb-0 fw-bold h4">Payment Methods</p>

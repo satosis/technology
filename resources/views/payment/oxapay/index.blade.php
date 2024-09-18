@@ -20,20 +20,18 @@
             <div class="dropdown">
                 <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                    COINPAYMENTS
+                    OXAPAYS
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a class="dropdown-item" href="https://www.coinpayments.net/apidoc-code">Docs</a>
+                        <a class="dropdown-item" href="https://docs.oxapay.com/">Docs</a>
                     </li>
-                    <li><a class="dropdown-item" href="https://github.com/hexters/CoinPayment">Github</a></li>
-                    <li><a class="dropdown-item" href="https://www.coinpayments.net/acct-coins">List coin</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-12 mt-4  text-center">
             <div class="card p-3 h70">
-                <img src="{{ asset('img/coinpayment.svg') }}" class="">
+                <img src="{{ asset('img/oxapay.svg') }}" class="h50">
             </div>
         </div>
         <div class="col-12">
@@ -50,8 +48,8 @@
                             </div>
 
                         </div>
-                        <div class="col-12" id="coinpayment">
-                            <div class="btn btn-primary payment"> Make Payment</div>
+                        <div class="col-12" id="invoice">
+                            <div class="btn btn-primary payment"> Create an invoice</div>
                         </div>
                     </div>
                 </div>
@@ -99,14 +97,14 @@
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script>
     $(function () {
-        $('#coinpayment').on('click', function () {
+        $('#invoice').on('click', function () {
             var amount = 10;
-            var url = "/api/payment/coinpayment";
+            var url = "/api/payment/oxapay/invoice";
             $.post({
                 url: url,
                 data: {amount: amount},
                 success: function (res) {
-                    window.location.href = res.url
+                    window.location.href = res
                 }
             })
         })

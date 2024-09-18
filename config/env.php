@@ -64,5 +64,8 @@ return [
     'coinpayment' => [
         'public_key'   => env('COINPAYMENTS_PUBLIC_KEY',null),
         'private_key'  => env('COINPAYMENTS_PRIVATE_KEY', null),
+    ],
+    'oxapay' => [
+        'api_key'   => env('OXAPAY_API_KEY',null),
     ]
 ];

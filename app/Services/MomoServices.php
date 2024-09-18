@@ -16,7 +16,7 @@ class MomoServices
         $partnerCode = Config::get('env.momo.partner_code');
         $accessKey = Config::get('env.momo.access_key');
         $secretKey = Config::get('env.momo.secret_key');
-        $orderId = 'SA-'. strtoupper(Str::random(10));
+        $orderId = 'MOMO-'. strtoupper(Str::random(10));
         $orderInfo = "Thanh toán qua MoMo";
         $amount = $request->amount;
         $ipnUrl = Config::get('env.momo.callback_url');
@@ -75,7 +75,7 @@ class MomoServices
             'requestType' => "payWithATM",
             'signature' => $signature,
             'lang' => 'vi');
-        $result = $this->execPostRequest($endpoint, json_encode($data));
+        $result = execPostRequest($endpoint, json_encode($data));
         $jsonResult = json_decode($result, true);  // decode json
         $resultCode = $jsonResult['resultCode'];
 
