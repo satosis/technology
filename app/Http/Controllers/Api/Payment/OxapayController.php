@@ -20,8 +20,8 @@ class OxapayController extends Controller
         return $this->oxapayServices->invoice($request);
     }
 
-    public function callback(Request $request)
+    public function return(Request $request)
     {
-        return $this->oxapayServices->callback($request);
+        return $this->oxapayServices->return($request);
     }
 }

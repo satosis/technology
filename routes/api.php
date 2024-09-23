@@ -73,7 +73,7 @@ Route::group(['prefix' => 'payment'],
         Route::group(['prefix' => 'oxapay'],
             function () {
                 Route::post('/invoice', [OxapayController::class, 'invoice']);
-                Route::get('/callback', [OxapayController::class, 'callback']);
+                Route::get('/return', [OxapayController::class, 'return']);
             }
         );
     }
