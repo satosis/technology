@@ -1,31 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Trang chủ</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('layouts.app')
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('colorlib/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('colorlib/css/style.css') }}">
-</head>
-<body>
-<section class="ftco-section" id="buttons">
+@section('content')
     <div class="container">
-        @if (Auth::check())
-            <div class="row">
-                <div class="col-md-2 d-flex" style="justify-content: space-between;">
-                    <a href="/profile">Profile</a>
-                    <a href="javascript:void(0)" onclick="event.preventDefault(); $('.logout-form').submit();">
-                        Log Out
-                    </a>
-                    <form class="logout-form" action="{{ route('logout') }}" method="POST">
-                        @csrf
-                    </form>
-                </div>
-            </div>
-        @endif
         <div class="row mb-4">
             <div class="col-md-12">
                 <h2 class="heading-section"> What do you want to test ?</h2>
@@ -231,12 +207,4 @@
             </div>
         </div>
     </div>
-</section>
-<!-- - - - - -end- - - - -  -->
-
-<script src="{{ asset('colorlib/js/jquery.min.js') }}"></script>
-<script src="{{ asset('colorlib/js/popper.js') }}"></script>
-<script src="{{ asset('colorlib/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('colorlib/js/main.js') }}"></script>
-</body>
-</html>
+    @endsection

@@ -18,8 +18,7 @@ class PusherServices
                 $query->where('author', '=', Auth::id())->where('other', '=', $id);
             })->orWhere(function ($query) use ($id) {
                 $query->where('author', '=', $id)->where('other', '=', Auth::id());
-            })->get();
-
+            })->orderBy('id', 'desc')->get();
         return $chats;
     }
 

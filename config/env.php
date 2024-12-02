@@ -67,5 +67,9 @@ return [
     ],
     'oxapay' => [
         'api_key'   => env('OXAPAY_API_KEY',null),
-    ]
+    ],
+    'turnstile' => [
+        'key'      => env('TURNSTILE_SITE_KEY', null),
+        'secret'   => env('TURNSTILE_SECRET_KEY', null),
+    ],
 ];

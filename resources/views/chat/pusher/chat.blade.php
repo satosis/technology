@@ -55,7 +55,7 @@
                     @foreach($user as $list)
                         <a href="/chat/pusher/{{ $list->id }}" class="list-group-item list-group-item-action border-0">
                             <div class="d-flex align-items-start">
-                                <img src="{{ $list->avatar }}" class="rounded-circle mr-1"
+                                <img src="{{ asset('img/avatar3.png') }}" class="rounded-circle mr-1"
                                      onerror="this.src='/img/avatar1.png';" width="40" height="40">
                                 <div class="flex-grow-1 ml-3">
                                     {{ $list->name }}

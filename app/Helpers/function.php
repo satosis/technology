@@ -6,6 +6,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Config;
 use function foo\func;
 
 if (!function_exists('formatURL')) {
@@ -85,5 +86,12 @@ if (!function_exists('execPostRequest')) {
         //close connection
         curl_close($ch);
         return $result;
+    }
+}
+
+if (!function_exists('getConfig')) {
+    function getConfig($key)
+    {
+        return Config::get($key);
     }
 }

@@ -15,8 +15,8 @@ class LineController extends Controller
 {
     public function redirect()
     {
-         Auth::loginUsingId(1);
-         return redirect()->to('/');
+        Auth::loginUsingId(1);
+        return redirect()->to('/');
         $callback = Config::get('env.app_url');
         $client = Config::get('env.line.liff_channel_id');
 

@@ -15,12 +15,15 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('colorlib/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('colorlib/css/style.css') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
+    <div class="cf-turnstile" data-sitekey="{{ getConfig('env.turnstile.key')}}" data-theme="light"></div>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -61,6 +64,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/profile">
+                                   Profile
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -83,4 +89,9 @@
     </main>
 </div>
 </body>
+<script src="{{ asset('colorlib/js/jquery.min.js') }}"></script>
+<script src="{{ asset('colorlib/js/popper.js') }}"></script>
+<script src="{{ asset('colorlib/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('colorlib/js/main.js') }}"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </html>
